@@ -1,6 +1,6 @@
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Starting DiagnosticPlugin.exe DiagnosticPlugin-ShutdownEvent DiagnosticPlugin-TotalShutdownEvent -wadVer1v5
-DiagnosticsPlugin.exe Error: 0 : [7/26/2025 2:37:52 PM] Failed to save IIS Directory state
-DiagnosticsPlugin.exe Error: 0 : [7/26/2025 2:37:52 PM] System.UnauthorizedAccessException: Filename: redirection.config
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Starting DiagnosticPlugin.exe DiagnosticPlugin-ShutdownEvent DiagnosticPlugin-TotalShutdownEvent -wadVer1v5
+DiagnosticsPlugin.exe Error: 0 : [7/27/2025 7:08:56 PM] Failed to save IIS Directory state
+DiagnosticsPlugin.exe Error: 0 : [7/27/2025 7:08:56 PM] System.UnauthorizedAccessException: Filename: redirection.config
 Error: Cannot read configuration file due to insufficient permissions
 
 
@@ -11,18 +11,18 @@ Error: Cannot read configuration file due to insufficient permissions
    at Microsoft.Web.Administration.ServerManager.SitesCollectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Azure.Plugins.Plugin.DiagnosticsPluginManager.SaveIISDirectoryState()
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Starting DiagnosticsPlugin
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] DiagnosticsStoreRootPath set to: C:\Users\PC\AppData\Local\dftmp\Resources\f6876cc8-039e-451c-8508-4e253568a962
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Loading config file: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Config file to read: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Checking VM Type
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Extension set to Emulator Mode
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Reading XML configuration file
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Bypassing private config decryption
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] WadCfg is provided in initial configuration. Using that to initialize Diagnostics.
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Starting DiagnosticsPlugin
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] DiagnosticsStoreRootPath set to: C:\Users\PC\AppData\Local\dftmp\Resources\5ad398ab-349d-4d10-b165-9ebf2211f9d4
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Loading config file: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Config file to read: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Checking VM Type
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Extension set to Emulator Mode
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Reading XML configuration file
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Bypassing private config decryption
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] WadCfg is provided in initial configuration. Using that to initialize Diagnostics.
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <WadCfg>
     <DiagnosticMonitorConfiguration overallQuotaInMB="4096">
       <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error" />
@@ -54,13 +54,13 @@ DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] <PublicConfig xmln
   </WadCfg>
   <StorageAccount>devstoreaccount1</StorageAccount>
 </PublicConfig>
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Private setting is loaded
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Is config json/xml loaded
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Checking if configuration needs to be fetched from the storage account and doing so if needed.
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Successfully created checkpoint file C:\Users\PC\AppData\Local\dftmp\Resources\f6876cc8-039e-451c-8508-4e253568a962\WAD0105\Configuration\Checkpoint.txt
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Will use local resource directory C:\Users\PC\AppData\Local\dftmp\Resources\f6876cc8-039e-451c-8508-4e253568a962\WAD0105
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:52 PM] Will use endpoint https://core.windows.net for storage.
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:53 PM] Exception in creating the ServerManager; is IIS installed?
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Private setting is loaded
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Is config json/xml loaded
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:56 PM] Checking if configuration needs to be fetched from the storage account and doing so if needed.
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:57 PM] Successfully created checkpoint file C:\Users\PC\AppData\Local\dftmp\Resources\5ad398ab-349d-4d10-b165-9ebf2211f9d4\WAD0105\Configuration\Checkpoint.txt
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:57 PM] Will use local resource directory C:\Users\PC\AppData\Local\dftmp\Resources\5ad398ab-349d-4d10-b165-9ebf2211f9d4\WAD0105
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:57 PM] Will use endpoint https://core.windows.net for storage.
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:58 PM] Exception in creating the ServerManager; is IIS installed?
  Error:System.UnauthorizedAccessException: Filename: redirection.config
 Error: Cannot read configuration file due to insufficient permissions
 
@@ -72,10 +72,10 @@ Error: Cannot read configuration file due to insufficient permissions
    at Microsoft.Web.Administration.ServerManager.SitesCollectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Azure.Plugins.Plugin.WadConfigProcessor.AddDirectories(EventsType mdsEvents, Directories wadDirectories)
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:53 PM] Running in emulator mode, crash dumps not enabled
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:53 PM] Checking to see if Application Insights extension needs to be configured.
-DiagnosticsPlugin.exe Information: 0 : [7/26/2025 2:37:53 PM] In emulator mode and using devstore updating XStoreAccount info, command line args: -LocalPath "C:\Users\PC\AppData\Local\dftmp\Resources\f6876cc8-039e-451c-8508-4e253568a962\WAD0105"  -ConfigFile "C:\Users\PC\AppData\Local\dftmp\Resources\f6876cc8-039e-451c-8508-4e253568a962\WAD0105\Configuration\MaConfig.xml" -ShutDownEvent WADDM-ShutDown-c11f40863d134f01a210a421518a159c  -TotalShutDownEvent WADDM-TotalShutDown-c11f40863d134f01a210a421518a159c -InitializedEvent WADM-StartUp-c11f40863d134f01a210a421518a159c -parent 20116 -events -wadVer1v5 -UseProxyServer -XStoreAccounts WadAccount#true#devstoreaccount1#Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==#http://127.0.0.1:10002#http://127.0.0.1:10001#http://127.0.0.1:10000
-DiagnosticsPlugin.exe Error: 0 : [7/26/2025 2:38:24 PM] Microsoft.Cis.Monitoring.Query.QueryException: ErrorFail
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:58 PM] Running in emulator mode, crash dumps not enabled
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:58 PM] Checking to see if Application Insights extension needs to be configured.
+DiagnosticsPlugin.exe Information: 0 : [7/27/2025 7:08:58 PM] In emulator mode and using devstore updating XStoreAccount info, command line args: -LocalPath "C:\Users\PC\AppData\Local\dftmp\Resources\5ad398ab-349d-4d10-b165-9ebf2211f9d4\WAD0105"  -ConfigFile "C:\Users\PC\AppData\Local\dftmp\Resources\5ad398ab-349d-4d10-b165-9ebf2211f9d4\WAD0105\Configuration\MaConfig.xml" -ShutDownEvent WADDM-ShutDown-4edbc0eee9d0463ca9f8d67e99be40ed  -TotalShutDownEvent WADDM-TotalShutDown-4edbc0eee9d0463ca9f8d67e99be40ed -InitializedEvent WADM-StartUp-4edbc0eee9d0463ca9f8d67e99be40ed -parent 33280 -events -wadVer1v5 -UseProxyServer -XStoreAccounts WadAccount#true#devstoreaccount1#Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==#http://127.0.0.1:10002#http://127.0.0.1:10001#http://127.0.0.1:10000
+DiagnosticsPlugin.exe Error: 0 : [7/27/2025 7:09:28 PM] Microsoft.Cis.Monitoring.Query.QueryException: ErrorFail
    at Microsoft.Cis.Monitoring.Query.QueryLocalTable..ctor(String TableName, String TablePath)
    at ApplicationInsightsExtension.MATableReader.ReadTableRecords(String tableName, String tablePath, DateTime startTime, DateTime endTime)
    at Microsoft.Azure.Plugins.Diagnostics.dll.MAStatusWriter.UpdateStatusReport(Object sender, ElapsedEventArgs e)
