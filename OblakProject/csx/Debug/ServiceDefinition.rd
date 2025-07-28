@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="OblakProject" generation="1" functional="0" release="0" Id="8f0a3937-a599-46f9-9cad-0e95965c2417" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="OblakProject" generation="1" functional="0" release="0" Id="f9543945-b760-4bcb-8f4a-8292f600d14f" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="OblakProjectGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -81,9 +81,9 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="3a3d3977-ae83-4ee0-917b-a9a91c5edc38" ref="Microsoft.RedDog.Contract\ServiceContract\OblakProjectContract@ServiceDefinition">
+    <implementation Id="d44a1b48-bafc-48f3-a29d-9be63e938be8" ref="Microsoft.RedDog.Contract\ServiceContract\OblakProjectContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="c08d0497-3ac9-4be9-96ab-0bbcc341a524" ref="Microsoft.RedDog.Contract\Interface\MovieService_WebRole1:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="3cd287a5-3602-4d04-a507-378726b05321" ref="Microsoft.RedDog.Contract\Interface\MovieService_WebRole1:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/OblakProject/OblakProjectGroup/MovieService_WebRole1:Endpoint1" />
           </inPort>

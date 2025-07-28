@@ -1,7 +1,7 @@
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(MovieService_WebRole1.StartupOwin))]
+// [assembly: OwinStartup(typeof(MovieService_WebRole1.StartupOwin))]
 
 namespace MovieService_WebRole1
 {
