@@ -43,6 +43,56 @@ namespace MovieData
             return results;
         }
 
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                throw new ArgumentException("Email must be provided", nameof(email));
+
+            try
+            {
+                System.Diagnostics.Debug.WriteLine($"Retrieving user with PartitionKey='User', RowKey='{email}'");
+
+                TableOperation retrieveOperation = TableOperation.Retrieve<User>("User", email);
+                TableResult result = await _table.ExecuteAsync(retrieveOperation);
+
+                if (result.Result == null)
+                {
+                    System.Diagnostics.Debug.WriteLine("User not found.");
+                    return null;  // No user found with that email
+                }
+
+                return result.Result as User;
+            }
+            catch (StorageException ex)
+            {
+                throw new Exception("Azure Storage retrieval failed: " + ex.Message, ex);
+            }
+        }
+
+
+
+        public async Task UpdateUserAsync(User user)
+        {
+            try
+            {
+                TableOperation replaceOperation = TableOperation.Replace(user);
+                TableResult result = await _table.ExecuteAsync(replaceOperation);
+
+                if (result.HttpStatusCode >= 200 && result.HttpStatusCode < 300)
+                {
+                    Console.WriteLine("User updated successfully.");
+                }
+                else
+                {
+                    throw new Exception("Update returned HTTP status: " + result.HttpStatusCode);
+                }
+            }
+            catch (StorageException ex)
+            {
+                throw new Exception("Azure Storage update failed: " + ex.Message, ex);
+            }
+        }
+
         public async Task AddStudent(User newUser)
         {
             try

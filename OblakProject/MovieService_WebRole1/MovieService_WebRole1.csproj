@@ -198,6 +198,7 @@
     <Compile Include="Context\DbContextLocal.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -267,9 +268,12 @@
     <Content Include="Views\Shared\Index.cshtml" />
     <Content Include="Views\Forum\New.cshtml" />
     <Content Include="Views\Forum\AddReturn.cshtml" />
+    <Content Include="Views\User\UserEdit.cshtml" />
+    <Content Include="Views\PostView\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -302,6 +306,10 @@
     <ProjectReference Include="..\MovieData\MovieData.csproj">
       <Project>{3abf42e9-8610-4dec-ac43-49346563ac08}</Project>
       <Name>MovieData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PostData\PostData.csproj">
+      <Project>{34b8a81b-bfc5-4bde-9360-83160917617c}</Project>
+      <Name>PostData</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

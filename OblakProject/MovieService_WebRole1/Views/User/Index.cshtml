@@ -3,14 +3,30 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Welcome @ViewBag.Username</h2>
+
+    using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <button type="submit">Log Out</button>
+    }
+    @Html.ActionLink("Profile", "Profile", "User", null, new { @class = "btn btn-primary", style = "margin-left:10px;" })
+}
+else
+{
+    <h2>Welcome, Guest</h2>
+}
 
 <p>
-    @Html.ActionLink("Log in", "Login")
-    @Html.ActionLink("Register", "Register")
+    @if (!User.Identity.IsAuthenticated)
+    {
+        @Html.ActionLink("Log in", "Login")
+        @: |
+        @Html.ActionLink("Register", "Register")
+    }
 </p>
-
-
 
 <table>
     <tr>
@@ -37,26 +53,29 @@
         </th>
     </tr>
     @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RowKey)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Gender)
-                    </td>
-                </tr>
-            }
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+        </tr>
+    }
 </table>

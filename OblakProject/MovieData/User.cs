@@ -1,12 +1,14 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieData
 {
+    public enum UserRole
+    {
+        Author,
+        Viewer
+    }
+
     public class User : TableEntity
     {
         public string Name { get; set; }
@@ -17,16 +19,33 @@ namespace MovieData
         public string Address { get; set; }
         public string Gender { get; set; }
         public string ImageUrl { get; set; }
+        public string Role { get; set; }
 
-        public User(string IndexNo)
+        public User(string indexNo)
         {
             PartitionKey = "User";
-            RowKey = IndexNo;
+            RowKey = indexNo;
+            UserRole = UserRole.Viewer; // default role
         }
 
-        public User() { }
-        
+        public User()
+        {
+            UserRole = UserRole.Viewer; // default role
+        }
 
-        
+
+        public UserRole UserRole
+        {
+            get
+            {
+                if (Enum.TryParse(Role, out UserRole roleEnum))
+                    return roleEnum;
+                return UserRole.Viewer; // default if not set
+            }
+            set
+            {
+                Role = value.ToString();
+            }
+        }
     }
 }

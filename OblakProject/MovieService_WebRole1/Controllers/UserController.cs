@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MovieData;
+using PostData;
 using MovieService_WebRole1.Models;
 using ApplicationUser = MovieService_WebRole1.Models.ApplicationUser;
 
@@ -12,6 +13,7 @@ using ApplicationUser = MovieService_WebRole1.Models.ApplicationUser;
 using ApplicationUserManager1 = MovieService_WebRole1.Models.ApplicationUserManager;
 using ApplicationSignInManager1 = MovieService_WebRole1.Models.ApplicationSignInManager;
 using System;
+using System.Collections.Generic;
 
 namespace MovieService_WebRole1.Controllers
 {
@@ -19,6 +21,7 @@ namespace MovieService_WebRole1.Controllers
     public class UserController : Controller
     {
         private UserDataRepository repo = new UserDataRepository();
+        
 
         private ApplicationUserManager1 _userManager;
         private ApplicationSignInManager1 _signInManager;
@@ -26,7 +29,8 @@ namespace MovieService_WebRole1.Controllers
         public UserController()
         {
             // Do NOT use HttpContext here!
-        }
+            
+        }    
 
         public UserController(ApplicationUserManager1 userManager, ApplicationSignInManager1 signInManager)
         {
@@ -48,15 +52,23 @@ namespace MovieService_WebRole1.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(string username = null)
         {
+            ViewBag.Username = username ?? User.Identity.GetUserName();
             return View(repo.RetrieveAllUsers());
         }
+
 
         [AllowAnonymous]
         public ActionResult Register()
         {
             return View(new RegisterViewModel());
+        }
+
+        [AllowAnonymous]
+        public ActionResult Login()
+        {
+            return View(new LoginViewModel());
         }
 
         [HttpPost]
@@ -101,11 +113,6 @@ namespace MovieService_WebRole1.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
-        public ActionResult Login()
-        {
-            return View();
-        }
 
         [HttpPost]
         [AllowAnonymous]
@@ -132,10 +139,118 @@ namespace MovieService_WebRole1.Controllers
             }
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login", "User");
+        }
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get { return HttpContext.GetOwinContext().Authentication; }
+        }
+
+
+
+        [Authorize]
+        public async Task<ActionResult> Profile()
+        {
+            string currentUserEmail = User.Identity.GetUserName(); 
+
+            if (string.IsNullOrEmpty(currentUserEmail))
+            {
+                return RedirectToAction("Login");
+            }
+            
+            User user = await repo.GetUserByEmailAsync(currentUserEmail);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+           
+            return View("UserEdit", user);
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult> EditProfile()
+        {
+            string email = User.Identity.GetUserName(); // current logged in user's email
+
+            if (string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            var user = await repo.GetUserByEmailAsync(email);
+            if (user == null)
+            {
+                return HttpNotFound("User not found");
+            }
+
+            return View("UserEdit", user);
+
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditProfile(User updatedUser)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("UserEdit", updatedUser);
+
+            }
+
+            try
+            {
+                // Retrieve existing user to update
+                string email = User.Identity.GetUserName();
+                if (string.IsNullOrEmpty(email))
+                {
+                    return RedirectToAction("Login", "User");
+                }
+
+                var existingUser = await repo.GetUserByEmailAsync(email);
+                if (existingUser == null)
+                    return HttpNotFound("User not found");
+
+                // Update the fields you allow user to edit
+                existingUser.Name = updatedUser.Name;
+                existingUser.Country = updatedUser.Country;
+                existingUser.City = updatedUser.City;
+                existingUser.Address = updatedUser.Address;
+                existingUser.Gender = updatedUser.Gender;
+                existingUser.ImageUrl = updatedUser.ImageUrl;
+
+                // Save changes back to Azure Table Storage
+                await repo.UpdateUserAsync(existingUser);
+
+                TempData["SuccessMessage"] = "Profile updated successfully.";
+                return RedirectToAction("Index", "User");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error updating profile: " + ex.Message);
+                return View("UserEdit", updatedUser);
+            }
+        }
+
+
+
         private ActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl)) return Redirect(returnUrl);
-            return RedirectToAction("Index", "User");
+            if (Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+
+            var username = User.Identity.GetUserName(); // get logged in username
+            return RedirectToAction("Index", "User", new { username = username });
         }
 
         private void AddErrors(IdentityResult result)

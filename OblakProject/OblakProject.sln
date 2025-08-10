@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService_WebRole1", "Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieData", "MovieData\MovieData.csproj", "{3ABF42E9-8610-4DEC-AC43-49346563AC08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostData", "PostData\PostData.csproj", "{34B8A81B-BFC5-4BDE-9360-83160917617C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3ABF42E9-8610-4DEC-AC43-49346563AC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ABF42E9-8610-4DEC-AC43-49346563AC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ABF42E9-8610-4DEC-AC43-49346563AC08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34B8A81B-BFC5-4BDE-9360-83160917617C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B8A81B-BFC5-4BDE-9360-83160917617C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B8A81B-BFC5-4BDE-9360-83160917617C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B8A81B-BFC5-4BDE-9360-83160917617C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
