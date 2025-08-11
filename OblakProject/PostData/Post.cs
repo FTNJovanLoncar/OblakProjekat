@@ -1,31 +1,30 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PostData
 {
-    public class Post:TableEntity
+    public class Post : TableEntity
     {
-
         public string Name { get; set; }
-        public string ReleaseDate { get; set; }
+        public DateTimeOffset ReleaseDate { get; set; }  // better than string
         public string Genre { get; set; }
-        public string IMDBRating { get; set; }
+        public double IMDBRating { get; set; }            // numeric rating
         public string Synopsis { get; set; }
-        public string LengthTime { get; set; }
+        public int LengthMinutes { get; set; }            // store length in minutes
         public string ImageUrl { get; set; }
 
+        public int Likes { get; set; }
+        public int Dislikes { get; set; }
 
-        public Post(string IndexNo)
+        // For comments, consider using JSON string or a separate Comments table
+        public string CommentsJson { get; set; }
+
+        public Post(string indexNo)
         {
             PartitionKey = "Post";
-            RowKey = IndexNo;
+            RowKey = indexNo;
         }
 
         public Post() { }
-
     }
 }

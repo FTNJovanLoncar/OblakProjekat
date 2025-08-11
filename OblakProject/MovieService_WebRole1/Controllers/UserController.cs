@@ -21,6 +21,7 @@ namespace MovieService_WebRole1.Controllers
     public class UserController : Controller
     {
         private UserDataRepository repo = new UserDataRepository();
+        private PostDataRepository repo1 = new PostDataRepository();
         
 
         private ApplicationUserManager1 _userManager;
@@ -30,12 +31,58 @@ namespace MovieService_WebRole1.Controllers
         {
             // Do NOT use HttpContext here!
             
-        }    
+        }
+/*
+        private async Task SeedAuthorsWithIdentityAsync()
+        {
+            var authors = new List<(string Email, string Password, string Name, string Country, string City, string Address, string Gender, string ImageUrl)>
+    {
+        ("author1@example.com", "password123", "Author One", "USA", "New York", "123 Main Street", "Male", "https://example.com/images/author1.jpg"),
+        ("author2@example.com", "password456", "Author Two", "UK", "London", "456 Baker Street", "Female", "https://example.com/images/author2.jpg")
+    };
+
+            foreach (var author in authors)
+            {
+                // Check if user exists in Identity user store
+                var identityUser = await UserManager.FindByEmailAsync(author.Email);
+                if (identityUser == null)
+                {
+                    identityUser = new ApplicationUser { UserName = author.Email, Email = author.Email };
+                    var createResult = await UserManager.CreateAsync(identityUser, author.Password);
+                    if (!createResult.Succeeded)
+                    {
+                        // Optionally log errors or handle them as needed
+                        continue;
+                    }
+                }
+
+                // Check if user exists in your repo, add if missing
+                var existingUser = await repo.GetUserByEmailAsync(author.Email);
+                if (existingUser == null)
+                {
+                    var user = new User(author.Email)
+                    {
+                        Name = author.Name,
+                        Password = author.Password,
+                        Email = author.Email,
+                        Country = author.Country,
+                        City = author.City,
+                        Address = author.Address,
+                        Gender = author.Gender,
+                        ImageUrl = author.ImageUrl,
+                        UserRole = UserRole.Author
+                    };
+                    await repo.AddStudent(user);
+                }
+            }
+        }
+*/
 
         public UserController(ApplicationUserManager1 userManager, ApplicationSignInManager1 signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            //SeedAuthorsWithIdentityAsync().GetAwaiter().GetResult();
         }
 
         public ApplicationUserManager1 UserManager
@@ -240,6 +287,32 @@ namespace MovieService_WebRole1.Controllers
                 ModelState.AddModelError("", "Error updating profile: " + ex.Message);
                 return View("UserEdit", updatedUser);
             }
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> BecomeAuthorConfirmed()
+        {
+            string email = User.Identity.GetUserName();
+            var user = await repo.GetUserByEmailAsync(email);
+
+            if (user == null)
+                return HttpNotFound("User not found");
+
+            // Optional: Double-check email contains @author
+            if (!user.Email.ToLower().Contains("@author"))
+            {
+                TempData["Message"] = "Only users with '@author' in their email can become authors.";
+                return RedirectToAction("Index", "User");
+            }
+
+            user.UserRole = UserRole.Author;
+
+            await repo.UpdateUserAsync(user);
+
+            TempData["Message"] = "You are now an author!";
+            return RedirectToAction("Index", "User");
         }
 
 

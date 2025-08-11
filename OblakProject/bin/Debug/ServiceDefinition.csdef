@@ -28,12 +28,6 @@
       <Content destination=".\">
         <SourceDirectory path="C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\rcf\Debug\MovieService_WebRole1Content\" />
       </Content>
-      <Content destination=".\">
-        <SourceDirectory path="C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\ecf\MovieService_WebRole1Content\" />
-      </Content>
     </Contents>
-    <Imports>
-      <Import moduleName="Diagnostics" />
-    </Imports>
   </WebRole>
 </ServiceDefinition>

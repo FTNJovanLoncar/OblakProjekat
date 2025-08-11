@@ -1,72 +1,55 @@
 ﻿using Microsoft.Azure;
-using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PostData
 {
     public class PostDataRepository
     {
-        private CloudStorageAccount _storageAccount;
-        private CloudTable _table;
+        private readonly CloudTable _table;
 
         public PostDataRepository()
         {
-            try
-            {
-                string connectionString = CloudConfigurationManager.GetSetting("DataConnectionString");
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new InvalidOperationException("Azure storage connection string is missing.");
-                }
-                _storageAccount = CloudStorageAccount.Parse(connectionString);
-                var tableClient = _storageAccount.CreateCloudTableClient();
-                _table = tableClient.GetTableReference("PostTable");
-                _table.CreateIfNotExists();
-            }
-            catch (Exception ex)
-            {
-                // Log or rethrow with more info
-                throw new Exception("Failed to initialize Azure Table Storage: " + ex.Message, ex);
-            }
+            string connectionString = CloudConfigurationManager.GetSetting("DataConnectionString");
+            if (string.IsNullOrEmpty(connectionString))
+                throw new InvalidOperationException("Azure storage connection string is missing.");
+
+            var storageAccount = CloudStorageAccount.Parse(connectionString);
+            var tableClient = storageAccount.CreateCloudTableClient();
+            _table = tableClient.GetTableReference("PostTable");
+            _table.CreateIfNotExistsAsync().GetAwaiter().GetResult(); // initialize table
         }
 
-        public IQueryable<Post> RetrieveAllUsers()
+        public async Task<IEnumerable<Post>> RetrieveAllPostsAsync()
         {
-            var results = from g in _table.CreateQuery<Post>()
-                          where g.PartitionKey == "Post"
-                          select g;
-            return results;
+            var query = new TableQuery<Post>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Post"));
+            var posts = new List<Post>();
+            TableContinuationToken token = null;
+
+            do
+            {
+                var queryResult = await _table.ExecuteQuerySegmentedAsync(query, token);
+                posts.AddRange(queryResult.Results);
+                token = queryResult.ContinuationToken;
+            } while (token != null);
+
+            return posts;
         }
 
-        public async Task AddPost(Post newPost)
+        public async Task AddPostAsync(Post newPost)
         {
-            try
-            {
-                TableOperation insertOperation = TableOperation.Insert(newPost);
-                TableResult result = await _table.ExecuteAsync(insertOperation);
+            if (newPost == null) throw new ArgumentNullException(nameof(newPost));
 
-                if (result.HttpStatusCode >= 200 && result.HttpStatusCode < 300)
-                {
-                    Console.WriteLine("User inserted successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("Insert returned HTTP status: " + result.HttpStatusCode);
-                }
-            }
-            catch (StorageException ex)
-            {
-                throw new Exception("Azure Storage insert failed: " + ex.Message, ex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Insert failed: " + ex.Message, ex);
-            }
+            var insertOperation = TableOperation.Insert(newPost);
+            var result = await _table.ExecuteAsync(insertOperation);
+
+            if (result.HttpStatusCode < 200 || result.HttpStatusCode >= 300)
+                throw new Exception($"Insert failed with status code: {result.HttpStatusCode}");
         }
 
+        // Optionally add UpdatePostAsync, DeletePostAsync, etc.
     }
 }
