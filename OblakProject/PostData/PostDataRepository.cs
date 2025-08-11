@@ -50,6 +50,33 @@ namespace PostData
                 throw new Exception($"Insert failed with status code: {result.HttpStatusCode}");
         }
 
-        // Optionally add UpdatePostAsync, DeletePostAsync, etc.
+        public async Task UpdatePostAsync(Post post)
+        {
+            var updateOperation = TableOperation.Replace(post);
+            var result = await _table.ExecuteAsync(updateOperation);
+
+            if (result.HttpStatusCode < 200 || result.HttpStatusCode >= 300)
+                throw new Exception($"Update failed with status code: {result.HttpStatusCode}");
+        }
+
+
+        public async Task DeletePostAsync(string partitionKey, string rowKey)
+        {
+            var retrieveOperation = TableOperation.Retrieve<Post>(partitionKey, rowKey);
+            var retrievedResult = await _table.ExecuteAsync(retrieveOperation);
+            var deleteEntity = (Post)retrievedResult.Result;
+
+            if (deleteEntity == null)
+                throw new Exception("Entity not found");
+
+            var deleteOperation = TableOperation.Delete(deleteEntity);
+            var result = await _table.ExecuteAsync(deleteOperation);
+
+            if (result.HttpStatusCode < 200 || result.HttpStatusCode >= 300)
+                throw new Exception($"Delete failed with status code: {result.HttpStatusCode}");
+        }
+
+
+
     }
 }

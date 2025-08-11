@@ -12,9 +12,11 @@ namespace PostData
         public string Synopsis { get; set; }
         public int LengthMinutes { get; set; }            // store length in minutes
         public string ImageUrl { get; set; }
-
+        public string AuthorEmail { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
+
+        public string OwnerEmail { get; set; }
 
         // For comments, consider using JSON string or a separate Comments table
         public string CommentsJson { get; set; }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="OblakProject" generation="1" functional="0" release="0" Id="24165066-24a5-4603-94c0-24060a1e5fe3" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="OblakProject" generation="1" functional="0" release="0" Id="c75d25d4-e904-4488-9ebb-e96de0558f9a" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="OblakProjectGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -52,7 +52,7 @@
       </maps>
       <components>
         <groupHascomponents>
-          <role name="MovieService_WebRole1" generation="1" functional="0" release="0" software="C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
+          <role name="MovieService_WebRole1" generation="1" functional="0" release="0" software="C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="Endpoint1" protocol="http" portRanges="80" />
             </componentports>
@@ -81,9 +81,9 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="c3c31235-58af-434d-a36b-531906b46eb8" ref="Microsoft.RedDog.Contract\ServiceContract\OblakProjectContract@ServiceDefinition">
+    <implementation Id="b09d4082-b9f6-4f10-8870-752128aa08a1" ref="Microsoft.RedDog.Contract\ServiceContract\OblakProjectContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="057b3821-450d-440d-9329-f2d731d7e597" ref="Microsoft.RedDog.Contract\Interface\MovieService_WebRole1:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="404dd7bc-115d-4d1c-abdf-02bf7f13f77e" ref="Microsoft.RedDog.Contract\Interface\MovieService_WebRole1:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/OblakProject/OblakProjectGroup/MovieService_WebRole1:Endpoint1" />
           </inPort>

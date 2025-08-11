@@ -1,28 +1,34 @@
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:35 PM] Starting DiagnosticPlugin.exe DiagnosticPlugin-ShutdownEvent DiagnosticPlugin-TotalShutdownEvent -wadVer1v5
-DiagnosticsPlugin.exe Error: 0 : [8/11/2025 3:32:36 PM] Failed to save IIS Directory state
-DiagnosticsPlugin.exe Error: 0 : [8/11/2025 3:32:36 PM] System.UnauthorizedAccessException: Filename: redirection.config
-Error: Cannot read configuration file due to insufficient permissions
-
-
-   at Microsoft.Web.Administration.Interop.IAppHostAdminManager.GetAdminSection(String bstrSectionName, String bstrPath)
-   at Microsoft.Web.Administration.Configuration.GetSectionInternal(ConfigurationSection section, String sectionPath, String locationPath)
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Starting DiagnosticPlugin.exe DiagnosticPlugin-ShutdownEvent DiagnosticPlugin-TotalShutdownEvent -wadVer1v5
+DiagnosticsPlugin.exe Error: 0 : [11.08.2025. 18:39:41] Failed to save IIS Directory state
+DiagnosticsPlugin.exe Error: 0 : [11.08.2025. 18:39:41] System.Runtime.InteropServices.COMException (0x80040154): Retrieving the COM class factory for component with CLSID {2B72133B-3F5B-4602-8952-803546CE3344} failed due to the following error: 80040154 Class not registered (Exception from HRESULT: 0x80040154 (REGDB_E_CLASSNOTREG)).
+   at System.Runtime.Remoting.RemotingServices.AllocateUninitializedObject(RuntimeType objectType)
+   at System.Runtime.Remoting.Activation.ActivationServices.CreateInstance(RuntimeType serverType)
+   at System.Runtime.Remoting.Activation.ActivationServices.IsCurrentContextOK(RuntimeType serverType, Object[] props, Boolean bNewObj)
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance[T]()
+   at Microsoft.Web.Administration.ConfigurationManager.CreateAdminManager[TClass,TInterface](WebConfigurationMap webConfigMap, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.CreateWritableAdminManager(WebConfigurationMap webConfigMap, String configPathToEdit, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.CreateConfiguration(WebConfigurationMap configMap, String configPathToEdit, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.GetConfiguration(String rawConfigurationPath, String cacheKey, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.GetApplicationHostConfiguration()
    at Microsoft.Web.Administration.ServerManager.SitesSectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Web.Administration.ServerManager.SitesCollectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Azure.Plugins.Plugin.DiagnosticsPluginManager.SaveIISDirectoryState()
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Starting DiagnosticsPlugin
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] DiagnosticsStoreRootPath set to: C:\Users\PC\AppData\Local\dftmp\Resources\0c459946-3afa-4f99-8d47-9a40b8922366
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Loading config file: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Config file to read: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Checking VM Type
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Extension set to Emulator Mode
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Reading XML configuration file
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Bypassing private config decryption
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] WadCfg is provided in initial configuration. Using that to initialize Diagnostics.
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Starting DiagnosticsPlugin
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Emulator config file set to C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] DiagnosticsStoreRootPath set to: C:\Users\Filip\AppData\Local\dftmp\Resources\e5efcfeb-16c7-46d0-b9db-fedb4b70882e
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Loading config file: C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Config file to read: C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Checking VM Type
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Emulator config file set to C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Extension set to Emulator Mode
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Reading XML configuration file
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Bypassing private config decryption
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] WadCfg is provided in initial configuration. Using that to initialize Diagnostics.
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <WadCfg>
     <DiagnosticMonitorConfiguration overallQuotaInMB="4096">
       <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error" />
@@ -54,28 +60,46 @@ DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] <PublicConfig xmln
   </WadCfg>
   <StorageAccount>devstoreaccount1</StorageAccount>
 </PublicConfig>
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Private setting is loaded
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Is config json/xml loaded
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Checking if configuration needs to be fetched from the storage account and doing so if needed.
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Successfully created checkpoint file C:\Users\PC\AppData\Local\dftmp\Resources\0c459946-3afa-4f99-8d47-9a40b8922366\WAD0105\Configuration\Checkpoint.txt
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Will use local resource directory C:\Users\PC\AppData\Local\dftmp\Resources\0c459946-3afa-4f99-8d47-9a40b8922366\WAD0105
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Will use endpoint https://core.windows.net for storage.
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Exception in creating the ServerManager; is IIS installed?
- Error:System.UnauthorizedAccessException: Filename: redirection.config
-Error: Cannot read configuration file due to insufficient permissions
-
-
-   at Microsoft.Web.Administration.Interop.IAppHostAdminManager.GetAdminSection(String bstrSectionName, String bstrPath)
-   at Microsoft.Web.Administration.Configuration.GetSectionInternal(ConfigurationSection section, String sectionPath, String locationPath)
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Private setting is loaded
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Is config json/xml loaded
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:41] Checking if configuration needs to be fetched from the storage account and doing so if needed.
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:42] Successfully created checkpoint file C:\Users\Filip\AppData\Local\dftmp\Resources\e5efcfeb-16c7-46d0-b9db-fedb4b70882e\WAD0105\Configuration\Checkpoint.txt
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:42] Will use local resource directory C:\Users\Filip\AppData\Local\dftmp\Resources\e5efcfeb-16c7-46d0-b9db-fedb4b70882e\WAD0105
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:42] Will use endpoint https://core.windows.net for storage.
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:42] Exception in creating the ServerManager; is IIS installed?
+ Error:System.Runtime.InteropServices.COMException (0x80040154): Retrieving the COM class factory for component with CLSID {2B72133B-3F5B-4602-8952-803546CE3344} failed due to the following error: 80040154 Class not registered (Exception from HRESULT: 0x80040154 (REGDB_E_CLASSNOTREG)).
+   at System.Runtime.Remoting.RemotingServices.AllocateUninitializedObject(RuntimeType objectType)
+   at System.Runtime.Remoting.Activation.ActivationServices.CreateInstance(RuntimeType serverType)
+   at System.Runtime.Remoting.Activation.ActivationServices.IsCurrentContextOK(RuntimeType serverType, Object[] props, Boolean bNewObj)
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance[T]()
+   at Microsoft.Web.Administration.ConfigurationManager.CreateAdminManager[TClass,TInterface](WebConfigurationMap webConfigMap, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.CreateWritableAdminManager(WebConfigurationMap webConfigMap, String configPathToEdit, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.CreateConfiguration(WebConfigurationMap configMap, String configPathToEdit, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.GetConfiguration(String rawConfigurationPath, String cacheKey, Boolean isAdminConfig, Boolean isRedirectionConfig)
+   at Microsoft.Web.Administration.ConfigurationManager.GetApplicationHostConfiguration()
    at Microsoft.Web.Administration.ServerManager.SitesSectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Web.Administration.ServerManager.SitesCollectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Azure.Plugins.Plugin.WadConfigProcessor.AddDirectories(EventsType mdsEvents, Directories wadDirectories)
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Running in emulator mode, crash dumps not enabled
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:36 PM] Checking to see if Application Insights extension needs to be configured.
-DiagnosticsPlugin.exe Information: 0 : [8/11/2025 3:32:37 PM] In emulator mode and using devstore updating XStoreAccount info, command line args: -LocalPath "C:\Users\PC\AppData\Local\dftmp\Resources\0c459946-3afa-4f99-8d47-9a40b8922366\WAD0105"  -ConfigFile "C:\Users\PC\AppData\Local\dftmp\Resources\0c459946-3afa-4f99-8d47-9a40b8922366\WAD0105\Configuration\MaConfig.xml" -ShutDownEvent WADDM-ShutDown-d74732eac9d7403c99a04460abd3581e  -TotalShutDownEvent WADDM-TotalShutDown-d74732eac9d7403c99a04460abd3581e -InitializedEvent WADM-StartUp-d74732eac9d7403c99a04460abd3581e -parent 13100 -events -wadVer1v5 -UseProxyServer -XStoreAccounts WadAccount#true#devstoreaccount1#Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==#http://127.0.0.1:10002#http://127.0.0.1:10001#http://127.0.0.1:10000
-DiagnosticsPlugin.exe Error: 0 : [8/11/2025 3:33:07 PM] Microsoft.Cis.Monitoring.Query.QueryException: ErrorFail
-   at Microsoft.Cis.Monitoring.Query.QueryLocalTable..ctor(String TableName, String TablePath)
-   at ApplicationInsightsExtension.MATableReader.ReadTableRecords(String tableName, String tablePath, DateTime startTime, DateTime endTime)
-   at Microsoft.Azure.Plugins.Diagnostics.dll.MAStatusWriter.UpdateStatusReport(Object sender, ElapsedEventArgs e)
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:42] Running in emulator mode, crash dumps not enabled
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:42] Checking to see if Application Insights extension needs to be configured.
+DiagnosticsPlugin.exe Error: 0 : [11.08.2025. 18:39:43] Could not find local resource with name: DiagnosticStore
+DiagnosticsPlugin.exe Error: 0 : [11.08.2025. 18:39:43] System.TypeInitializationException: The type initializer for 'Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment' threw an exception. ---> System.Runtime.InteropServices.SEHException: External component has thrown an exception.
+   at RdInitializeRuntimeSecondary(_RD_ROLE_STATUS )
+   at Microsoft.WindowsAzure.ServiceRuntime.Internal.InteropRoleManager.Initialize(RoleStatus initialStatus)
+   at Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.InitializeEnvironment()
+   at Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment..cctor()
+   --- End of inner exception stack trace ---
+   at Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource(String localResourceName)
+   at Microsoft.Azure.Plugins.Diagnostics.dll.RoleInformation.GetLocalResourcePath(String name)
+DiagnosticsPlugin.exe Error: 0 : [11.08.2025. 18:39:43] System.ArgumentNullException: Value cannot be null.
+Parameter name: path1
+   at System.IO.Path.Combine(String path1, String path2)
+   at Microsoft.Azure.Plugins.Diagnostics.dll.MAStatusWriter..ctor(AzureInfrastructureLogger logger)
+   at Microsoft.Azure.Plugins.Diagnostics.dll.ProcessContainer..ctor(AzureInfrastructureLogger logger, String fullExePath, String workingDir, Int32 parentPid, Dictionary`2 envVars, String fullMaConfigFileName, String wadVersion, String pluginShutdownName, String pluginTotalShutdownName, Boolean useProxyServer)
+   at Microsoft.Azure.Plugins.Plugin.DiagnosticsPluginManager.StartMonitoringAgent(AzureInfrastructureLogger logger, String maConfigFile, String shutdownEventName, String totalShutdownEventName, Boolean useProxyServer)
+   at Microsoft.Azure.Plugins.Plugin.DiagnosticsPluginManager.<StartAgent>b__0(String shutdownEventName, String totalShutdownEventName)
+DiagnosticsPlugin.exe Information: 0 : [11.08.2025. 18:39:43] DiagnosticPlugin.exe exit with code -111

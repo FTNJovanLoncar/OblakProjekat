@@ -21,6 +21,8 @@
 
     @Html.ActionLink("Profile", "Profile", "User", null, new { @class = "btn btn-primary", style = "margin-left:10px;" })
 
+    @Html.ActionLink("Lista diskusija", "Index", "Post", null, new { @class = "btn btn-secondary", style = "margin-left:10px;" })
+
     @* Become Author button as a form POST *@
     using (Html.BeginForm("BecomeAuthorConfirmed", "User", FormMethod.Post, new { id = "becomeAuthorForm", style = "display:inline-block; margin-left:10px;" }))
     {

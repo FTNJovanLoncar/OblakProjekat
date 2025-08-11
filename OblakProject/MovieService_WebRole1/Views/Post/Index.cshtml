@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PostData.Post>
+
+@{
+    ViewBag.Title = "Lista diskusija";
+}
+
+<h2>Diskusije o filmovima</h2>
+
+@if (User.Identity.IsAuthenticated && ViewBag.IsAuthor == true)
+{
+    <p>
+        @Html.ActionLink("Kreiraj novu diskusiju", "Create", "Post", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Moj profil", "Index", "User", null, new { @class = "btn btn-secondary", style = "margin-left:10px;" })
+    </p>
+}
+else if (User.Identity.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Moj profil", "Index", "User", null, new { @class = "btn btn-secondary" })
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Prijavite se", "Login", "User", null, new { @class = "btn btn-info" })
+    </p>
+}
+
+
+@if (Model == null || !Model.Any())
+{
+    <p>Trenutno nema diskusija za prikaz.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ime filma</th>
+                <th>Žanr</th>
+                <th>Datum izlaska</th>
+                <th>IMDb ocena</th>
+                <th>Radnja</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var post in Model)
+            {
+                <tr>
+                    <td>@post.Name</td>
+                    <td>@post.Genre</td>
+                    <td>@post.ReleaseDate.Date.ToShortDateString()</td>
+                    <td>@post.IMDBRating</td>
+                    <td>@post.Synopsis</td>
+                    <td>
+                        @Html.ActionLink("Detalji", "Details", "Post", new { id = post.RowKey }, new { @class = "btn btn-info btn-sm" })
+
+                        @{
+                            var userEmail = User.Identity.Name.ToLower();
+                            if (ViewBag.IsAuthor == true && post.AuthorEmail?.ToLower() == userEmail)
+                            {
+                                @Html.Raw("&nbsp;")
+                                @Html.ActionLink("Izmeni", "Edit", "Post", new { id = post.RowKey }, new { @class = "btn btn-warning btn-sm" })
+                                @Html.Raw("&nbsp;")
+                                @Html.ActionLink("Obriši", "Delete", "Post", new { id = post.RowKey }, new { @class = "btn btn-danger btn-sm" })
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

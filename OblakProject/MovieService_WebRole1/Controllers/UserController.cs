@@ -174,7 +174,8 @@ namespace MovieService_WebRole1.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                 
+                    return RedirectToAction("Index", "User");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -185,6 +186,7 @@ namespace MovieService_WebRole1.Controllers
                     return View(model);
             }
         }
+
 
 
         [HttpPost]
@@ -312,7 +314,7 @@ namespace MovieService_WebRole1.Controllers
             await repo.UpdateUserAsync(user);
 
             TempData["Message"] = "You are now an author!";
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("Index", "Post");
         }
 
 
