@@ -79,19 +79,34 @@ namespace MovieService_WebRole1.Controllers
             return View(post);
         }
 
-        // POST: Post/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(Post updatedPost)
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
-
-            if (updatedPost.AuthorEmail != user.Email)
+            if (user == null || updatedPost.AuthorEmail != user.Email)
                 return new HttpStatusCodeResult(401);
 
-            await _postRepo.UpdatePostAsync(updatedPost);
+            // Prvo dohvatimo originalni post iz baze
+            var posts = await _postRepo.RetrieveAllPostsAsync();
+            var originalPost = posts.FirstOrDefault(p => p.RowKey == updatedPost.RowKey);
+
+            if (originalPost == null)
+                return HttpNotFound();
+
+            // Ažuriramo samo polja koja korisnik može menjati
+            originalPost.Name = updatedPost.Name;
+            originalPost.Genre = updatedPost.Genre;
+            originalPost.ReleaseDate = updatedPost.ReleaseDate;
+            originalPost.IMDBRating = updatedPost.IMDBRating;
+            originalPost.Synopsis = updatedPost.Synopsis;
+
+            // Sada koristimo originalPost koji ima ETag da izvršimo update
+            await _postRepo.UpdatePostAsync(originalPost);
+
             return RedirectToAction("Index");
         }
+
 
         // GET: Post/Delete/{id}
         public async Task<ActionResult> Delete(string id)

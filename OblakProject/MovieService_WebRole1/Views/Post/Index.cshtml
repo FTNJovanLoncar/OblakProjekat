@@ -26,7 +26,6 @@ else
     </p>
 }
 
-
 @if (Model == null || !Model.Any())
 {
     <p>Trenutno nema diskusija za prikaz.</p>
@@ -54,21 +53,22 @@ else
                     <td>@post.IMDBRating</td>
                     <td>@post.Synopsis</td>
                     <td>
-                        @Html.ActionLink("Detalji", "Details", "Post", new { id = post.RowKey }, new { @class = "btn btn-info btn-sm" })
+                        @if (ViewBag.IsAuthor == true && post.AuthorEmail?.ToLower() == User.Identity.Name.ToLower())
+                        {
+                            @Html.ActionLink("Izmeni", "Edit", "Post", new { id = post.RowKey }, new { @class = "btn btn-warning btn-sm" })
+                            @Html.Raw("&nbsp;")
 
-                        @{
-                            var userEmail = User.Identity.Name.ToLower();
-                            if (ViewBag.IsAuthor == true && post.AuthorEmail?.ToLower() == userEmail)
-                            {
-                                @Html.Raw("&nbsp;")
-                                @Html.ActionLink("Izmeni", "Edit", "Post", new { id = post.RowKey }, new { @class = "btn btn-warning btn-sm" })
-                                @Html.Raw("&nbsp;")
-                                @Html.ActionLink("Obriši", "Delete", "Post", new { id = post.RowKey }, new { @class = "btn btn-danger btn-sm" })
-                            }
+                            <form action="@Url.Action("Delete", "Post")" method="post" style="display:inline;" onsubmit="return confirm('Da li ste sigurni da želite da obrišete ovu diskusiju?');">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@post.RowKey" />
+                                <button type="submit" class="btn btn-danger btn-sm">Obriši</button>
+                            </form>
+
                         }
                     </td>
                 </tr>
             }
+
         </tbody>
     </table>
 }
