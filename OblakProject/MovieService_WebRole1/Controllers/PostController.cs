@@ -13,7 +13,6 @@ namespace MovieService_WebRole1.Controllers
         private readonly PostDataRepository _postRepo = new PostDataRepository();
         private readonly UserDataRepository _userRepo = new UserDataRepository();
 
-        // GET: Post/Index
         public async Task<ActionResult> Index()
         {
             var posts = await _postRepo.RetrieveAllPostsAsync();
@@ -21,41 +20,39 @@ namespace MovieService_WebRole1.Controllers
 
             ViewBag.IsAuthor = (user != null && user.UserRole == UserRole.Author);
 
+            if (user != null)
+            {
+                foreach (var post in posts)
+                {
+                    post.IsFollowedByCurrentUser = await _postRepo.IsUserFollowingAsync(post.RowKey, user.Email);
+                }
+            }
+
             return View(posts);
         }
 
-
-        // GET: Post/Create
         public async Task<ActionResult> Create()
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
             if (user == null || user.UserRole != UserRole.Author)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden, "Samo autori mogu kreirati diskusije.");
-            }
+
             return View();
         }
 
-        // POST: Post/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Post post)
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
             if (user == null || user.UserRole != UserRole.Author)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden, "Samo autori mogu kreirati diskusije.");
-            }
 
             if (!ModelState.IsValid)
-            {
                 return View(post);
-            }
 
             post.RowKey = Guid.NewGuid().ToString();
             post.PartitionKey = "Post";
-
-            // dodaj email autora u post
             post.AuthorEmail = user.Email;
 
             await _postRepo.AddPostAsync(post);
@@ -63,7 +60,6 @@ namespace MovieService_WebRole1.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Post/Edit/{id}
         public async Task<ActionResult> Edit(string id)
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
@@ -87,28 +83,23 @@ namespace MovieService_WebRole1.Controllers
             if (user == null || updatedPost.AuthorEmail != user.Email)
                 return new HttpStatusCodeResult(401);
 
-            // Prvo dohvatimo originalni post iz baze
             var posts = await _postRepo.RetrieveAllPostsAsync();
             var originalPost = posts.FirstOrDefault(p => p.RowKey == updatedPost.RowKey);
 
             if (originalPost == null)
                 return HttpNotFound();
 
-            // Ažuriramo samo polja koja korisnik može menjati
             originalPost.Name = updatedPost.Name;
             originalPost.Genre = updatedPost.Genre;
             originalPost.ReleaseDate = updatedPost.ReleaseDate;
             originalPost.IMDBRating = updatedPost.IMDBRating;
             originalPost.Synopsis = updatedPost.Synopsis;
 
-            // Sada koristimo originalPost koji ima ETag da izvršimo update
             await _postRepo.UpdatePostAsync(originalPost);
 
             return RedirectToAction("Index");
         }
 
-
-        // GET: Post/Delete/{id}
         public async Task<ActionResult> Delete(string id)
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
@@ -124,7 +115,6 @@ namespace MovieService_WebRole1.Controllers
             return View(post);
         }
 
-        // POST: Post/Delete/{id}
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(string id)
@@ -133,11 +123,86 @@ namespace MovieService_WebRole1.Controllers
             var post = posts.FirstOrDefault(p => p.RowKey == id);
 
             if (post != null)
-            {
                 await _postRepo.DeletePostAsync(post.PartitionKey, post.RowKey);
-            }
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Upvote(string postId)
+        {
+            var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
+            if (user == null)
+                return new HttpStatusCodeResult(401);
+
+            await _postRepo.AddVoteAsync(postId, user.Email, true);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Downvote(string postId)
+        {
+            var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
+            if (user == null)
+                return new HttpStatusCodeResult(401);
+
+            await _postRepo.AddVoteAsync(postId, user.Email, false);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ToggleFollow(string postId)
+        {
+            var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
+            if (user == null)
+                return new HttpStatusCodeResult(401);
+
+            await _postRepo.ToggleFollowAsync(postId, user.Email);
+            return RedirectToAction("Index");
+        }
+
+        // KOMENTARI - prikaz svih komentara i polje za novi komentar
+        public async Task<ActionResult> Comments(string id)
+        {
+            var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
+            if (user == null)
+                return new HttpStatusCodeResult(401);
+
+            var comments = await _postRepo.GetCommentsForPostAsync(id);
+
+            ViewBag.PostId = id;
+            ViewBag.UserEmail = user.Email;
+
+            return View(comments);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> AddComment(string postId, string content)
+        {
+            var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
+            if (user == null)
+                return new HttpStatusCodeResult(401);
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                TempData["Error"] = "Komentar ne može biti prazan.";
+                return RedirectToAction("Comments", new { id = postId });
+            }
+
+            var comment = new CommentEntity(postId, Guid.NewGuid().ToString())
+            {
+                AuthorEmail = user.Email,
+                Content = content,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            await _postRepo.AddCommentAsync(comment);
+
+            return RedirectToAction("Comments", new { id = postId });
         }
     }
 }

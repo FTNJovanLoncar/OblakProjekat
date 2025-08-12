@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PostData.CommentEntity>
+
+@{
+    ViewBag.Title = "Komentari";
+}
+
+<h2>Komentari za diskusiju</h2>
+
+<p>
+    <a href="@Url.Action("Index", "Post")" class="btn btn-secondary">Nazad na listu diskusija</a>
+</p>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+@if (!Model.Any())
+{
+    <p>Još nema komentara za ovu diskusiju.</p>
+}
+else
+{
+<ul class="list-group mb-3">
+    @foreach (var comment in Model)
+    {
+        <li class="list-group-item">
+            <strong>@comment.AuthorEmail</strong> - <small>@comment.CreatedAt.ToLocalTime().ToString("g")</small><br />
+            @Html.Raw(System.Net.WebUtility.HtmlEncode(comment.Content).Replace("\n", "<br />"))
+        </li>
+    }
+
+</ul>
+}
+
+<h3>Dodaj novi komentar</h3>
+
+<form action="@Url.Action("AddComment", "Post")" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="postId" value="@ViewBag.PostId" />
+    <div class="form-group">
+        <textarea name="content" class="form-control" rows="4" placeholder="Unesite komentar ovde..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Pošalji komentar</button>
+</form>

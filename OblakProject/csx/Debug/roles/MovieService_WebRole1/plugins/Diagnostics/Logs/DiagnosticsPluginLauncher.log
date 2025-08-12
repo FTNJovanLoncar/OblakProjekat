@@ -1,17 +1,17 @@
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Emulator config file set to C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] DiagnosticsStoreRootPath set to: C:\Users\Filip\AppData\Local\dftmp\Resources\2ade9fa2-f719-4569-89dd-af5f2d1a2e7b
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Loading config file: C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Config file to read: C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Checking VM Type
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Emulator config file set to C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Extension set to Emulator Mode
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Reading XML configuration file
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Bypassing private config decryption
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Stopping the running plugin, if any
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] No DiagnosticsPlugin is running.
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Killing any DiagnosticsPlugin that might remain.
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Killing any MonAgentHost that might remain.
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Diagnostics plugin stopped successfully
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:17] Resetting DiagnosticPlugin
-DiagnosticsPluginLauncher.exe Error: 0 : [12.08.2025. 12:59:20] DiagnosticsPlugin launch failed with exit code -111
-DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 12:59:20] DiagnosticPlugin exited with code -111
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Emulator config file set to C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] DiagnosticsStoreRootPath set to: C:\Users\Filip\AppData\Local\dftmp\Resources\5d44386f-e850-4f90-8e56-4cf6c54de761
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Loading config file: C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Config file to read: C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Checking VM Type
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Emulator config file set to C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Extension set to Emulator Mode
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Reading XML configuration file
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Bypassing private config decryption
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Stopping the running plugin, if any
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] No DiagnosticsPlugin is running.
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Killing any DiagnosticsPlugin that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:19] Killing any MonAgentHost that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:20] Diagnostics plugin stopped successfully
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:20] Resetting DiagnosticPlugin
+DiagnosticsPluginLauncher.exe Error: 0 : [12.08.2025. 14:17:22] DiagnosticsPlugin launch failed with exit code -111
+DiagnosticsPluginLauncher.exe Information: 0 : [12.08.2025. 14:17:22] DiagnosticPlugin exited with code -111

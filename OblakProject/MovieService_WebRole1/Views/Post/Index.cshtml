@@ -55,20 +55,47 @@ else
                     <td>
                         @if (ViewBag.IsAuthor == true && post.AuthorEmail?.ToLower() == User.Identity.Name.ToLower())
                         {
+                            <!-- AUTOR: samo Izmeni i Obriši -->
                             @Html.ActionLink("Izmeni", "Edit", "Post", new { id = post.RowKey }, new { @class = "btn btn-warning btn-sm" })
                             @Html.Raw("&nbsp;")
-
                             <form action="@Url.Action("Delete", "Post")" method="post" style="display:inline;" onsubmit="return confirm('Da li ste sigurni da želite da obrišete ovu diskusiju?');">
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="id" value="@post.RowKey" />
                                 <button type="submit" class="btn btn-danger btn-sm">Obriši</button>
                             </form>
+                        }
+                        else
+                        {
+                      
+                            <!-- Glasanje - Pozitivno -->
+                            <form action="@Url.Action("Upvote", "Post")" method="post" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="postId" value="@post.RowKey" />
+                                <button type="submit" class="btn btn-success btn-sm">Pozitivno (@post.PositiveVotes)</button>
+                            </form>
 
+                            <!-- Glasanje - Negativno -->
+                            <form action="@Url.Action("Downvote", "Post")" method="post" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="postId" value="@post.RowKey" />
+                                <button type="submit" class="btn btn-danger btn-sm">Negativno (@post.NegativeVotes)</button>
+                            </form>
+
+                            <!-- Praćenje diskusije -->
+                            <form action="@Url.Action("ToggleFollow", "Post")" method="post" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="postId" value="@post.RowKey" />
+                                <button type="submit" class="btn btn-info btn-sm">
+                                    @(post.IsFollowedByCurrentUser ? "Otprati diskusiju" : "Prati diskusiju")
+                                </button>
+                            </form>
+
+                            @Html.Raw("&nbsp;")
+                            @Html.ActionLink("Ostavi komentar", "Comments", "Post", new { id = post.RowKey }, new { @class = "btn btn-secondary btn-sm" })
                         }
                     </td>
                 </tr>
             }
-
         </tbody>
     </table>
 }

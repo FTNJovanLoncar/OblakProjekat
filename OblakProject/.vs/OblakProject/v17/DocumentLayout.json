@@ -1,48 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|c:\\users\\filip\\desktop\\oblak projekat\\oblakproject\\movieservice_webrole1\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|solutionrelative:movieservice_webrole1\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\movieservice_webrole1\\views\\post\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|solutionrelative:movieservice_webrole1\\views\\post\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\movieservice_webrole1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|solutionrelative:movieservice_webrole1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34B8A81B-BFC5-4BDE-9360-83160917617C}|PostData\\PostData.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\postdata\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34B8A81B-BFC5-4BDE-9360-83160917617C}|PostData\\PostData.csproj|solutionrelative:postdata\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34B8A81B-BFC5-4BDE-9360-83160917617C}|PostData\\PostData.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\postdata\\postdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34B8A81B-BFC5-4BDE-9360-83160917617C}|PostData\\PostData.csproj|solutionrelative:postdata\\postdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\movieservice_webrole1\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|solutionrelative:movieservice_webrole1\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\movieservice_webrole1\\controllers\\forumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|solutionrelative:movieservice_webrole1\\controllers\\forumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\movieservice_webrole1\\scripts\\bootstrap.bundle.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|solutionrelative:movieservice_webrole1\\scripts\\bootstrap.bundle.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3ABF42E9-8610-4DEC-AC43-49346563AC08}|MovieData\\MovieData.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\moviedata\\userdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3ABF42E9-8610-4DEC-AC43-49346563AC08}|MovieData\\MovieData.csproj|solutionrelative:moviedata\\userdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\movieservice_webrole1\\views\\post\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B8EB95EA-D546-4DC3-9918-38435BB7C96D}|MovieService_WebRole1\\MovieService_WebRole1.csproj|solutionrelative:movieservice_webrole1\\views\\post\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -50,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,127 +34,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Views\\Post\\Index.cshtml",
-              "RelativeDocumentMoniker": "MovieService_WebRole1\\Views\\Post\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Views\\Post\\Index.cshtml",
-              "RelativeToolTip": "MovieService_WebRole1\\Views\\Post\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T17:34:59.961Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "bootstrap.bundle.js",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Scripts\\bootstrap.bundle.js",
-              "RelativeDocumentMoniker": "MovieService_WebRole1\\Scripts\\bootstrap.bundle.js",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Scripts\\bootstrap.bundle.js",
-              "RelativeToolTip": "MovieService_WebRole1\\Scripts\\bootstrap.bundle.js",
-              "ViewState": "AQIAAEQTAAAAAAAAAAAAAFwTAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-11T18:19:10.341Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Views\\Post\\Create.cshtml",
-              "RelativeDocumentMoniker": "MovieService_WebRole1\\Views\\Post\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Views\\Post\\Create.cshtml",
-              "RelativeToolTip": "MovieService_WebRole1\\Views\\Post\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T17:54:18.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PostController.cs",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Controllers\\PostController.cs",
-              "RelativeDocumentMoniker": "MovieService_WebRole1\\Controllers\\PostController.cs",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Controllers\\PostController.cs",
-              "RelativeToolTip": "MovieService_WebRole1\\Controllers\\PostController.cs",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAmwHcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T17:05:58.931Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ForumController.cs",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Controllers\\ForumController.cs",
-              "RelativeDocumentMoniker": "MovieService_WebRole1\\Controllers\\ForumController.cs",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Controllers\\ForumController.cs",
-              "RelativeToolTip": "MovieService_WebRole1\\Controllers\\ForumController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T17:05:52.864Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PostDataRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\PostData\\PostDataRepository.cs",
-              "RelativeDocumentMoniker": "PostData\\PostDataRepository.cs",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\PostData\\PostDataRepository.cs",
-              "RelativeToolTip": "PostData\\PostDataRepository.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAA0wFIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T17:02:24.63Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Post.cs",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\PostData\\Post.cs",
-              "RelativeDocumentMoniker": "PostData\\Post.cs",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\PostData\\Post.cs",
-              "RelativeToolTip": "PostData\\Post.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T16:52:21.309Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "MovieService_WebRole1\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Controllers\\UserController.cs",
-              "RelativeToolTip": "MovieService_WebRole1\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAB8BAAAAAAAAAAAWwCUBAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T17:43:11.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Views\\User\\Index.cshtml",
-              "RelativeDocumentMoniker": "MovieService_WebRole1\\Views\\User\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieService_WebRole1\\Views\\User\\Index.cshtml",
-              "RelativeToolTip": "MovieService_WebRole1\\Views\\User\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-27T17:43:10.944Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserDataRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieData\\UserDataRepository.cs",
-              "RelativeDocumentMoniker": "MovieData\\UserDataRepository.cs",
-              "ToolTip": "C:\\Users\\Filip\\Desktop\\Oblak Projekat\\OblakProject\\MovieData\\UserDataRepository.cs",
-              "RelativeToolTip": "MovieData\\UserDataRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGMAAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T17:43:11.261Z"
             }
           ]
         }
