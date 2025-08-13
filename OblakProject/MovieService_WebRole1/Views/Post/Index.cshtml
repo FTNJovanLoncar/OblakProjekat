@@ -71,14 +71,14 @@ else
                             <form action="@Url.Action("Upvote", "Post")" method="post" style="display:inline;">
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="postId" value="@post.RowKey" />
-                                <button type="submit" class="btn btn-success btn-sm">Pozitivno (@post.PositiveVotes)</button>
+                                <button type="submit" class="btn-like">Pozitivno (@post.PositiveVotes)</button>
                             </form>
 
                             <!-- Glasanje - Negativno -->
                             <form action="@Url.Action("Downvote", "Post")" method="post" style="display:inline;">
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="postId" value="@post.RowKey" />
-                                <button type="submit" class="btn btn-danger btn-sm">Negativno (@post.NegativeVotes)</button>
+                                <button type="submit" class="btn-dislike">Negativno (@post.NegativeVotes)</button>
                             </form>
 
                             <!-- Praćenje diskusije -->

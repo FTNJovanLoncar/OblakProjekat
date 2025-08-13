@@ -1,20 +1,230 @@
-﻿/* Set padding to keep content from hitting the edges */
+﻿/* =========================
+   General Body & Layout
+========================= */
+body {
+    background-color: #ffffff !important; /* white background for content */
+    color: #333333 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Keep content from hitting edges */
 .body-content {
-    margin-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-top: 15px !important;
+    padding: 15px !important;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+/* =========================
+   Header / Navigation
+========================= */
+.navbar {
+    background-color: #000000 !important; /* black navbar */
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+    .navbar .navbar-brand,
+    .navbar .navbar-nav > li > a {
+        color: #ffffff !important;
+        font-weight: bold !important;
+    }
+
+        .navbar .navbar-brand:hover,
+        .navbar .navbar-nav > li > a:hover {
+            color: #FFA500 !important; /* orange hover */
+        }
+
+/* =========================
+   Forms & Inputs
+========================= */
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 280px !important;
+    padding: 6px 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    background-color: #ffffff !important;
+    color: #333333 !important;
 }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        border-color: #FFA500 !important;
+        box-shadow: 0 0 5px #FFA500 !important;
+        outline: none !important;
+    }
+
+/* =========================
+   Buttons (applied to <button> and <a>)
+========================= */
+.btn, .btn-orange, a.btn, a.btn-orange, button.btn, button.btn-orange {
+    display: inline-block !important;
+    background-color: #FFA500 !important; /* orange background */
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 10px 18px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    transition: background 0.3s !important;
+}
+
+    .btn:hover, .btn:focus,
+    .btn-orange:hover, .btn-orange:focus,
+    a.btn:hover, a.btn:focus,
+    a.btn-orange:hover, a.btn-orange:focus,
+    button.btn:hover, button.btn:focus,
+    button.btn-orange:hover, button.btn-orange:focus {
+        background-color: #cc8400 !important; /* darker orange on hover */
+        color: #ffffff !important;
+        text-decoration: none !important;
+    }
+
+/* =========================
+   Lists & Tables
+========================= */
+.dl-horizontal dt {
+    white-space: normal !important;
+}
+
+/* =========================
+   Cards / Posts / Panels
+========================= */
+.post-card, .panel, .card-box {
+    background-color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    border-radius: 6px !important;
+    margin-bottom: 20px !important;
+    padding: 15px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+/* =========================
+   Links & Accents
+========================= */
+a {
+    color: #FFA500 !important;
+    text-decoration: none !important;
+}
+
+    a:hover {
+        color: #cc8400 !important;
+        text-decoration: none !important;
+    }
+
+/* =========================
+   Misc
+========================= */
+hr {
+    border-top: 1px solid #000000 !important;
+}
+
+/* =========================
+   Container
+========================= */
+.container {
+    max-width: 1200px !important;
+    margin: 20px auto !important;
+    padding: 0 20px !important;
+}
+
+/* =========================
+   Header Box
+========================= */
+.header-box {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 20px !important;
+    border-radius: 6px !important;
+    margin-bottom: 30px !important;
+}
+
+.welcome-text {
+    margin: 0 0 15px 0 !important;
+}
+
+/* Button Group */
+.button-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+}
+
+/* Guest links spacing */
+.guest-links {
+    margin-top: 10px !important;
+}
+
+/* =========================
+   Table Styles
+========================= */
+.styled-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 10px !important;
+}
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px !important;
+        border-bottom: 1px solid #ddd !important;
+        text-align: left !important;
+    }
+
+    .styled-table th {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+    }
+
+    .styled-table tr:nth-child(even) {
+        background-color: #f9f9f9 !important;
+    }
+
+    .styled-table tr:hover {
+        background-color: #fff4e6 !important; /* light orange highlight */
+    }
+
+    .styled-table a {
+        color: #FFA500 !important;
+        text-decoration: none !important;
+    }
+
+        .styled-table a:hover {
+            color: #cc8400 !important;
+        }
+
+.btn-like {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-like:hover {
+        background-color: #218838;
+    }
+
+.btn-dislike {
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-dislike:hover {
+        background-color: #c82333;
+    }
