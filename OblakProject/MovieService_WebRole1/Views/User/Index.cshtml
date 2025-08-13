@@ -19,8 +19,8 @@
             <div class="button-group">
                 @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { id = "logoutForm" }))
                 {
-                @Html.AntiForgeryToken()
-                <button type="submit" class="btn btn-orange">Log Out</button>
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-orange">Log Out</button>
                 }
 
                 @Html.ActionLink("Profile", "Profile", "User", null, new { @class = "btn btn-orange" })
@@ -28,11 +28,11 @@
 
                 @using (Html.BeginForm("BecomeAuthorConfirmed", "User", FormMethod.Post, new { id = "becomeAuthorForm", style = "display:inline-block;" }))
                 {
-                @Html.AntiForgeryToken()
-                if (currentUser != null && currentUser.UserRole != MovieData.UserRole.Author && currentUser.Email.ToLower().Contains("@author"))
-                {
-                <button type="submit" class="btn btn-orange">Become an Author</button>
-                }
+                    @Html.AntiForgeryToken()
+                    if (currentUser != null && currentUser.UserRole != MovieData.UserRole.Author && currentUser.Email.ToLower().Contains("@author"))
+                    {
+                        <button type="submit" class="btn btn-orange">Become an Author</button>
+                    }
                 }
             </div>
         }

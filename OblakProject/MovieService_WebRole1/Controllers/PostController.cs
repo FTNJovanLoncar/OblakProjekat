@@ -31,14 +31,17 @@ namespace MovieService_WebRole1.Controllers
             return View(posts);
         }
 
+        // GET: Post/Create
         public async Task<ActionResult> Create()
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
             if (user == null || user.UserRole != UserRole.Author)
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden, "Samo autori mogu kreirati diskusije.");
 
-            return View();
+            var newPost = new Post(); // <--- instantiate a new model
+            return View(newPost);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

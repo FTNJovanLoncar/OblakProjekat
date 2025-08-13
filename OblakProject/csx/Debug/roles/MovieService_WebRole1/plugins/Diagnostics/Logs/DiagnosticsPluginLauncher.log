@@ -1,0 +1,15 @@
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] DiagnosticsStoreRootPath set to: C:\Users\PC\AppData\Local\dftmp\Resources\5c23e35a-8902-4b3e-8388-f2fdea4b9bc0
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Loading config file: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Config file to read: C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Checking VM Type
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Emulator config file set to C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\csx\Debug\roles\MovieService_WebRole1\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Extension set to Emulator Mode
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Reading XML configuration file
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Bypassing private config decryption
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Stopping the running plugin, if any
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] No DiagnosticsPlugin is running.
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Killing any DiagnosticsPlugin that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:09 PM] Killing any MonAgentHost that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:10 PM] Diagnostics plugin stopped successfully
+DiagnosticsPluginLauncher.exe Information: 0 : [8/13/2025 5:28:10 PM] Resetting DiagnosticPlugin
