@@ -105,18 +105,52 @@ namespace PostData
             var result = await _followsTable.ExecuteAsync(retrieveOperation);
             var followEntity = (FollowEntity)result.Result;
 
+            // Retrieve the post
+            var postRetrieve = TableOperation.Retrieve<Post>("Post", postId);
+            var postResult = await _postTable.ExecuteAsync(postRetrieve);
+            var postEntity = (Post)postResult.Result;
+
             if (followEntity == null)
             {
+                // Add follow record
                 var newFollow = new FollowEntity(postId, userEmail);
                 var insert = TableOperation.Insert(newFollow);
                 await _followsTable.ExecuteAsync(insert);
+
+                // Add email to the post's Emails list
+                if (postEntity != null)
+                {
+                    var emails = postEntity.Emails; // get current list
+                    if (!emails.Contains(userEmail, StringComparer.OrdinalIgnoreCase))
+                    {
+                        emails.Add(userEmail);
+                        postEntity.Emails = emails; // assign back to trigger setter -> EmailsSerialized updated
+                        var replacePost = TableOperation.Replace(postEntity);
+                        await _postTable.ExecuteAsync(replacePost);
+                        Console.WriteLine(string.Join(", ", postEntity.Emails));
+                    }
+                }
             }
             else
             {
+                // Remove follow record
                 var delete = TableOperation.Delete(followEntity);
                 await _followsTable.ExecuteAsync(delete);
+
+                // Remove email from the post's Emails list
+                if (postEntity != null)
+                {
+                    var emails = postEntity.Emails;
+                    if (emails.RemoveAll(e => e.Equals(userEmail, StringComparison.OrdinalIgnoreCase)) > 0)
+                    {
+                        postEntity.Emails = emails; // assign back to trigger setter
+                        var replacePost = TableOperation.Replace(postEntity);
+                        await _postTable.ExecuteAsync(replacePost);
+                    }
+                }
             }
         }
+
 
         // VOTE
         public async Task AddVoteAsync(string postId, string userEmail, bool positive)
@@ -214,7 +248,40 @@ namespace PostData
                 postEntity.CommentsCount++;
                 var replacePost = TableOperation.Replace(postEntity);
                 await _postTable.ExecuteAsync(replacePost);
+                await SendCommentNotificationEmails(postEntity, comment);
             }
         }
+
+        private async Task SendCommentNotificationEmails(Post post, CommentEntity comment)
+        {
+            if (post.Emails == null || post.Emails.Count == 0)
+            {
+                Console.WriteLine(post.Emails);
+                return;
+            }
+            foreach (var email in post.Emails)
+            {
+                // Skip the author of the comment if you want
+            //    if (email.Equals(comment.AuthorEmail, StringComparison.OrdinalIgnoreCase))
+             //       continue;
+
+               
+                using (var client = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587))
+                {
+                    client.Credentials = new System.Net.NetworkCredential("zerobraine.lastloncar@gmail.com", "lfijctaekntyxzux");
+                    client.EnableSsl = true;
+
+                    var mail = new System.Net.Mail.MailMessage();
+                    mail.From = new System.Net.Mail.MailAddress("zerobraine.lastloncar@gmail.com", "Movie App");
+                    mail.To.Add(email);
+                    mail.Subject = $"New comment on post {post.Name}";
+                    mail.Body = $"User {comment.AuthorEmail} just commented: \"{comment.Content}\"";
+                    mail.IsBodyHtml = false;
+
+                    await client.SendMailAsync(mail);
+                }
+            }
+        }
+
     }
 }

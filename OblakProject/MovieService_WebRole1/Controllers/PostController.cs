@@ -161,6 +161,7 @@ namespace MovieService_WebRole1.Controllers
                 return new HttpStatusCodeResult(401);
 
             await _postRepo.ToggleFollowAsync(postId, user.Email);
+            
             return RedirectToAction("Index");
         }
 
@@ -201,7 +202,7 @@ namespace MovieService_WebRole1.Controllers
             };
 
             await _postRepo.AddCommentAsync(comment);
-
+         
             return RedirectToAction("Comments", new { id = postId });
         }
     }

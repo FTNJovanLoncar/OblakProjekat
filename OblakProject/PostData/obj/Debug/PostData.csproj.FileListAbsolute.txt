@@ -12,9 +12,6 @@ C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\PostData.pdb
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.WindowsAzure.Configuration.dll
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.WindowsAzure.Storage.dll
-C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.Data.Edm.dll
-C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.Data.Services.Client.dll
-C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.Data.OData.dll
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.WindowsAzure.Configuration.xml
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\obj\Debug\PostData.csproj.AssemblyReference.cache
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\obj\Debug\PostData.csproj.CoreCompileInputs.cache
@@ -37,3 +34,9 @@ C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\PostData\bin\Debug\Microsoft.
 C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\PostData\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
 C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\PostData\bin\Debug\Microsoft.WindowsAzure.Storage.xml
 C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\PostData\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\PostData\bin\Debug\Newtonsoft.Json.xml

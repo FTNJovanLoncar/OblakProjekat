@@ -1,11 +1,16 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PostData
 {
     public class Post : TableEntity
     {
-        public Post() { }
+        public Post()
+        {
+           
+        }
 
         public Post(string indexNo)
         {
@@ -23,13 +28,34 @@ namespace PostData
         public int NegativeVotes { get; set; }
         public int CommentsCount { get; set; }
 
+        public string EmailsSerialized { get; set; }
+
         [IgnoreProperty]
-        public bool IsFollowedByCurrentUser { get; set; }
+        public List<string> Emails
+        {
+            get => string.IsNullOrEmpty(EmailsSerialized)
+                ? new List<string>()
+                : EmailsSerialized.Split(',').ToList();
+            set => EmailsSerialized = string.Join(",", value);
+        }
+
+
+        public bool IsFollowedByCurrentUserValue { get; set; }
+
+        [IgnoreProperty]
+        public bool IsFollowedByCurrentUser
+        {
+            get => IsFollowedByCurrentUserValue;
+            set => IsFollowedByCurrentUserValue = value;
+        }
+
     }
 
     public class VoteEntity : TableEntity
     {
-        public VoteEntity() { }
+        public VoteEntity()
+        {
+        }
 
         public VoteEntity(string postId, string userEmail)
         {

@@ -200,9 +200,6 @@ C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieServ
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\Microsoft.Owin.xml
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\Owin.dll
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\WebActivatorEx.dll
-C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\Microsoft.Data.Edm.dll
-C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\Microsoft.Data.OData.dll
-C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\Microsoft.Data.Services.Client.dll
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\PostData.dll
 C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\obj\Debug\MovieService_WebRole1\bin\PostData.pdb
 C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\bin\Debug\ServiceConfiguration.cscfg
