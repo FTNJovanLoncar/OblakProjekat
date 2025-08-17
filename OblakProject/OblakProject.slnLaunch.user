@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "OblakProject.ccproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

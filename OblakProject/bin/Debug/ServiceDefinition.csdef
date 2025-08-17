@@ -26,7 +26,7 @@
     </Endpoints>
     <Contents>
       <Content destination=".\">
-        <SourceDirectory path="C:\Users\PC\Desktop\Oblak Projekat\OblakProject\OblakProject\rcf\Debug\MovieService_WebRole1Content\" />
+        <SourceDirectory path="C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\rcf\Debug\MovieService_WebRole1Content\" />
       </Content>
     </Contents>
   </WebRole>

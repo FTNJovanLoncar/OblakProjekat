@@ -34,3 +34,15 @@ C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\MovieData\obj\Debug\MovieData
 C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\MovieData\obj\Debug\MovieData.csproj.Up2Date
 C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\MovieData\obj\Debug\MovieData.dll
 C:\Users\Filip\Desktop\Oblak Projekat\OblakProject\MovieData\obj\Debug\MovieData.pdb
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\bin\Debug\MovieData.dll
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\bin\Debug\MovieData.pdb
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\bin\Debug\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\bin\Debug\PostData.dll
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\bin\Debug\PostData.pdb
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\bin\Debug\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.csproj.AssemblyReference.cache
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.csproj.CoreCompileInputs.cache
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.csproj.Up2Date
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.dll
+C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.pdb

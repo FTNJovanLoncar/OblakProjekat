@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using MovieData;
 using PostData;
 
@@ -13,12 +14,13 @@ namespace MovieService_WebRole1.Controllers
         private readonly PostDataRepository _postRepo = new PostDataRepository();
         private readonly UserDataRepository _userRepo = new UserDataRepository();
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string sort, string searchName, string searchGenre)
         {
             var posts = await _postRepo.RetrieveAllPostsAsync();
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
 
             ViewBag.IsAuthor = (user != null && user.UserRole == UserRole.Author);
+             
 
             if (user != null)
             {
@@ -27,6 +29,31 @@ namespace MovieService_WebRole1.Controllers
                     post.IsFollowedByCurrentUser = await _postRepo.IsUserFollowingAsync(post.RowKey, user.Email);
                 }
             }
+
+            if (!string.IsNullOrWhiteSpace(searchName))
+            {
+                posts = posts.Where(p => p.Name != null &&
+                                         p.Name.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(searchGenre))
+            {
+                posts = posts.Where(p => p.Genre != null &&
+                                         p.Genre.IndexOf(searchGenre, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
+
+            if (sort == "rating")
+            {
+                posts = posts.OrderByDescending(p => p.IMDBRating).ToList();
+                ViewBag.IsSorted = true;
+            }
+            else
+            {
+                ViewBag.IsSorted = false;
+            }
+
+            ViewBag.SearchName = searchName;
+            ViewBag.SearchGenre = searchGenre;
 
             return View(posts);
         }
@@ -208,5 +235,27 @@ namespace MovieService_WebRole1.Controllers
          
             return RedirectToAction("Comments", new { id = postId });
         }
+
+        public async Task<ActionResult> SortByRating()
+        {
+            var posts = await _postRepo.RetrieveAllPostsAsync();
+            var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
+
+            ViewBag.IsAuthor = (user != null && user.UserRole == UserRole.Author);
+            ViewBag.IsSorted = true; 
+
+            if (user != null)
+            {
+                foreach (var post in posts)
+                {
+                    post.IsFollowedByCurrentUser = await _postRepo.IsUserFollowingAsync(post.RowKey, user.Email);
+                }
+            }
+
+            var sortedPosts = posts.OrderByDescending(p => p.IMDBRating).ToList();
+            return View("Index", sortedPosts);
+        }
+
+
     }
 }

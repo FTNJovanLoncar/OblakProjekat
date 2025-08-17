@@ -118,5 +118,31 @@ namespace MovieData
                 throw new Exception("Insert failed: " + ex.Message, ex);
             }
         }
+
+        public async Task<User[]> GetAllUsersAsync()
+        {
+            try
+            {
+                var query = new TableQuery<User>().Where(
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "User"));
+
+                var users = new System.Collections.Generic.List<User>();
+                TableContinuationToken token = null;
+
+                do
+                {
+                    var segment = await _table.ExecuteQuerySegmentedAsync(query, token);
+                    users.AddRange(segment.Results);
+                    token = segment.ContinuationToken;
+                } while (token != null);
+
+                return users.ToArray();
+            }
+            catch (StorageException ex)
+            {
+                throw new Exception("Azure Storage query failed: " + ex.Message, ex);
+            }
+        }
+
     }
 }
