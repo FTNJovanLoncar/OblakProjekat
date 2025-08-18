@@ -332,5 +332,43 @@ namespace MovieService_WebRole1.Controllers
         {
             foreach (var error in result.Errors) ModelState.AddModelError("", error);
         }
+
+
+        /// <summary>
+        /// Minimalni server alive check – ne dira bazu, idealno za load balancer/monitoring.
+        /// URL: /User/Alive  (ili /alive ako dodaš rutu ispod)
+        /// </summary>
+        [HttpGet]
+        [AllowAnonymous] // važno jer je kontroler [Authorize]
+        [OutputCache(Duration = 0, NoStore = true, VaryByParam = "*")]
+        public ActionResult Alive()
+        {
+            return Content("OK " + DateTime.UtcNow.ToString("o"), "text/plain");
+        }
+
+        /// <summary>
+        /// (Opcionalno) Dublji health check — pokuša lagani pristup zavisnostima.
+        /// Ako nemaš brzu metodu, ostavi samo Alive().
+        /// URL: /User/Health  (ili /health ako dodaš rutu ispod)
+        /// </summary>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult> Health()
+        {
+            try
+            {
+                return Json(new { status = "Healthy", timeUtc = DateTime.UtcNow }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 503; // Service Unavailable
+                return Json(new
+                {
+                    status = "Unhealthy",
+                    error = ex.Message,
+                    timeUtc = DateTime.UtcNow
+                }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

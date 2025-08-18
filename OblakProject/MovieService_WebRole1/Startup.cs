@@ -10,6 +10,8 @@ namespace MovieService_WebRole1
         public void Configuration(IAppBuilder app)
         {
             //AuthStartup.ConfigureAuth(app);
+
+
         }
     }
 }
