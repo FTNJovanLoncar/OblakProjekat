@@ -306,6 +306,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\General\V6\StudentService_Web_Blob_Queue\StudentService - Ceo zadatak\ImageConverter_WorkerRole\ImageConverter_WorkerRole.csproj">
+      <Project>{2ec7c4c8-4f1c-46e0-9973-183c170136b7}</Project>
+      <Name>ImageConverter_WorkerRole</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieData\MovieData.csproj">
       <Project>{3abf42e9-8610-4dec-ac43-49346563ac08}</Project>
       <Name>MovieData</Name>

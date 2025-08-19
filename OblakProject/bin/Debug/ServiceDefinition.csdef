@@ -28,6 +28,9 @@
       <Content destination=".\">
         <SourceDirectory path="C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\rcf\Debug\MovieService_WebRole1Content\" />
       </Content>
+      <Content destination=".\">
+        <SourceDirectory path="C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\ecf\MovieService_WebRole1Content\" />
+      </Content>
     </Contents>
   </WebRole>
 </ServiceDefinition>

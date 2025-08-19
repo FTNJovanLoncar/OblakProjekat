@@ -131,11 +131,13 @@ else
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Slika</th>
                 <th>Ime filma</th>
                 <th>Žanr</th>
                 <th>Datum izlaska</th>
                 <th>IMDb ocena</th>
                 <th>Radnja</th>
+                <th>Trajanje</th>
                 <th>Akcije</th>
             </tr>
         </thead>
@@ -143,11 +145,22 @@ else
             @foreach (var post in Model)
             {
                 <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(post.ImageUrl))
+                        {
+                            <img src="@post.ImageUrl" alt="Post Image" style="width:50px; height:50px; border-radius:5px;" />
+                        }
+                        else
+                        {
+                            <span>Nema slike</span>
+                        }
+                    </td>
                     <td>@post.Name</td>
                     <td>@post.Genre</td>
                     <td>@post.ReleaseDate.Date.ToShortDateString()</td>
                     <td>@post.IMDBRating</td>
                     <td>@post.Synopsis</td>
+                    <td>@post.Duration</td>
                     <td>
                         @if (ViewBag.IsAuthor == true && post.AuthorEmail?.ToLower() == User.Identity.Name.ToLower())
                         {
@@ -162,7 +175,7 @@ else
                         }
                         else
                         {
-                      
+
                             <!-- Glasanje - Pozitivno -->
                             <form action="@Url.Action("Upvote", "Post")" method="post" style="display:inline;">
                                 @Html.AntiForgeryToken()

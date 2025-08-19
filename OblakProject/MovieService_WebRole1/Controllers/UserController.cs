@@ -8,12 +8,18 @@ using MovieData;
 using PostData;
 using MovieService_WebRole1.Models;
 using ApplicationUser = MovieService_WebRole1.Models.ApplicationUser;
+using ImageConverter_WorkerRole;
 
 // Alias ambiguous types to resolve conflict
 using ApplicationUserManager1 = MovieService_WebRole1.Models.ApplicationUserManager;
 using ApplicationSignInManager1 = MovieService_WebRole1.Models.ApplicationSignInManager;
 using System;
 using System.Collections.Generic;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.Queue;
+using Microsoft.WindowsAzure.Storage;
+using System.IO;
 
 namespace MovieService_WebRole1.Controllers
 {
@@ -117,7 +123,7 @@ namespace MovieService_WebRole1.Controllers
         {
             return View(new LoginViewModel());
         }
-
+        /*
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -159,6 +165,86 @@ namespace MovieService_WebRole1.Controllers
             AddErrors(result);
             return View(model);
         }
+
+        */
+
+        //NOVA FJA ZA REGISTRACIJU
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase file)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var result = await UserManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                try
+                {
+                    string imageUrl = null;
+
+                    // Ako je korisnik uploadovao sliku → upload u blob
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        // jedinstveno ime fajla
+                        string uniqueBlobName = $"userimage_{Guid.NewGuid()}";
+
+                        var storageAccount = CloudStorageAccount.Parse(
+                            CloudConfigurationManager.GetSetting("DataConnectionString")
+                        );
+                        CloudBlobClient blobStorage = storageAccount.CreateCloudBlobClient();
+                        CloudBlobContainer container = blobStorage.GetContainerReference("user-images");
+                        await container.CreateIfNotExistsAsync();
+                        container.SetPermissions(
+                            new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob }
+                        );
+
+                        CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                        blob.Properties.ContentType = file.ContentType;
+
+                        // Upload fajla
+                        await blob.UploadFromStreamAsync(file.InputStream);
+
+                        imageUrl = blob.Uri.ToString();
+
+                        // Ako koristiš queue da worker role generiše thumbnail
+                        CloudQueue queue = QueueHelper.GetQueueReference("user-thumbnails");
+                        await queue.AddMessageAsync(new CloudQueueMessage(uniqueBlobName));
+                    }
+
+                    // Kreiranje entiteta za User Table
+                    var u = new User(model.Email) // RowKey = Email
+                    {
+                        Name = model.Name,
+                        Password = model.Password,
+                        Email = model.Email,
+                        Country = model.Country,
+                        City = model.City,
+                        Address = model.Address,
+                        Gender = model.Gender,
+                        ImageUrl = imageUrl
+                    };
+
+                    await repo.AddStudent(u); // umesto AddStudent
+
+                    return RedirectToAction("Index", "User");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Error saving user info: " + ex.Message);
+                    return View(model);
+                }
+            }
+
+            AddErrors(result);
+            return View(model);
+        }
+
 
 
         [HttpPost]
@@ -245,7 +331,7 @@ namespace MovieService_WebRole1.Controllers
 
         }
 
-
+        /*
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
@@ -290,6 +376,79 @@ namespace MovieService_WebRole1.Controllers
                 return View("UserEdit", updatedUser);
             }
         }
+        */
+
+        //NOVAAA FJA ZA EDIT
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditProfile(User updatedUser, HttpPostedFileBase profileImage)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("UserEdit", updatedUser);
+            }
+
+            try
+            {
+                string email = User.Identity.GetUserName();
+                if (string.IsNullOrEmpty(email))
+                    return RedirectToAction("Login", "User");
+
+                var existingUser = await repo.GetUserByEmailAsync(email);
+                if (existingUser == null)
+                    return HttpNotFound("User not found");
+
+                // Update osnovnih polja
+                existingUser.Name = updatedUser.Name;
+                existingUser.Country = updatedUser.Country;
+                existingUser.City = updatedUser.City;
+                existingUser.Address = updatedUser.Address;
+                existingUser.Gender = updatedUser.Gender;
+
+                // Upload slike samo ako postoji novi fajl
+                if (profileImage != null && profileImage.ContentLength > 0)
+                {
+                    string uniqueBlobName = $"userimage_{Guid.NewGuid()}";
+
+                    var storageAccount = CloudStorageAccount.Parse(
+                        CloudConfigurationManager.GetSetting("DataConnectionString")
+                    );
+                    CloudBlobClient blobStorage = storageAccount.CreateCloudBlobClient();
+                    CloudBlobContainer container = blobStorage.GetContainerReference("user-images");
+                    await container.CreateIfNotExistsAsync();
+                    await container.SetPermissionsAsync(
+                        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob }
+                    );
+
+                    CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                    blob.Properties.ContentType = profileImage.ContentType;
+
+                    profileImage.InputStream.Position = 0; // reset stream
+                    await blob.UploadFromStreamAsync(profileImage.InputStream);
+
+                    // Queue za worker role
+                    CloudQueue queue = QueueHelper.GetQueueReference("user-thumbnails");
+                    await queue.AddMessageAsync(new CloudQueueMessage(uniqueBlobName));
+
+                    // Dodeljujemo ImageUrl samo ako je upload uspešan
+                    existingUser.ImageUrl = blob.Uri.ToString();
+                }
+
+                await repo.UpdateUserAsync(existingUser);
+
+                TempData["SuccessMessage"] = "Profile updated successfully.";
+                return RedirectToAction("Index", "User");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error updating profile: " + ex.Message);
+                return View("UserEdit", updatedUser);
+            }
+        }
+
+
 
         [HttpPost]
         [Authorize]

@@ -23,6 +23,8 @@ namespace PostData
         public DateTime ReleaseDate { get; set; }  // changed to DateTime (from DateTimeOffset)
         public double IMDBRating { get; set; }
         public string Synopsis { get; set; }
+        public string Duration { get; set; }
+        public string ImageUrl { get; set; }
         public string AuthorEmail { get; set; }
         public int PositiveVotes { get; set; }
         public int NegativeVotes { get; set; }

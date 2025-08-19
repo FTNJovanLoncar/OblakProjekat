@@ -149,8 +149,10 @@ namespace MovieService_WebRole1.Models
         [Display(Name = "Gender")]
         public string Gender { get; set; }
 
+        /*
         [Required]
         [Display(Name = "ImageUrl")]
         public string ImageUrl { get; set; }
+        */
     }
 }

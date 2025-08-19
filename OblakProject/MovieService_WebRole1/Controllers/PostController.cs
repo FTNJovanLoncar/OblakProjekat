@@ -2,10 +2,15 @@
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Description;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage;
 using MovieData;
 using PostData;
+using Microsoft.WindowsAzure.Storage.Queue;
 
 namespace MovieService_WebRole1.Controllers
 {
@@ -72,7 +77,7 @@ namespace MovieService_WebRole1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Post post)
+        public async Task<ActionResult> Create(Post post, HttpPostedFileBase postImage)
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
             if (user == null || user.UserRole != UserRole.Author)
@@ -84,6 +89,32 @@ namespace MovieService_WebRole1.Controllers
             post.RowKey = Guid.NewGuid().ToString();
             post.PartitionKey = "Post";
             post.AuthorEmail = user.Email;
+
+            // Upload slike ako postoji
+            if (postImage != null && postImage.ContentLength > 0)
+            {
+                string uniqueBlobName = $"postimage_{Guid.NewGuid()}";
+                var storageAccount = CloudStorageAccount.Parse(
+                    CloudConfigurationManager.GetSetting("DataConnectionString")
+                );
+                var blobClient = storageAccount.CreateCloudBlobClient();
+                var container = blobClient.GetContainerReference("post-images");
+                await container.CreateIfNotExistsAsync();
+                container.SetPermissions(
+                    new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob }
+                );
+
+                var blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = postImage.ContentType;
+                postImage.InputStream.Position = 0;
+                await blob.UploadFromStreamAsync(postImage.InputStream);
+
+                post.ImageUrl = blob.Uri.ToString();
+
+                CloudQueue queue = QueueHelper.GetQueueReference("post-thumbnails");
+                await queue.AddMessageAsync(new CloudQueueMessage(uniqueBlobName));
+            }
+
 
             await _postRepo.AddPostAsync(post);
 
@@ -107,7 +138,7 @@ namespace MovieService_WebRole1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Post updatedPost)
+        public async Task<ActionResult> Edit(Post updatedPost, HttpPostedFileBase postImage)
         {
             var user = await _userRepo.GetUserByEmailAsync(User.Identity.Name);
             if (user == null || updatedPost.AuthorEmail != user.Email)
@@ -124,6 +155,32 @@ namespace MovieService_WebRole1.Controllers
             originalPost.ReleaseDate = updatedPost.ReleaseDate;
             originalPost.IMDBRating = updatedPost.IMDBRating;
             originalPost.Synopsis = updatedPost.Synopsis;
+            originalPost.Duration = updatedPost.Duration;
+
+            // Upload nove slike ako postoji
+            if (postImage != null && postImage.ContentLength > 0)
+            {
+                string uniqueBlobName = $"postimage_{Guid.NewGuid()}";
+                var storageAccount = CloudStorageAccount.Parse(
+                    CloudConfigurationManager.GetSetting("DataConnectionString")
+                );
+                var blobClient = storageAccount.CreateCloudBlobClient();
+                var container = blobClient.GetContainerReference("post-images");
+                await container.CreateIfNotExistsAsync();
+                container.SetPermissions(
+                    new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob }
+                );
+
+                var blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = postImage.ContentType;
+                postImage.InputStream.Position = 0;
+                await blob.UploadFromStreamAsync(postImage.InputStream);
+
+                originalPost.ImageUrl = blob.Uri.ToString();
+
+                CloudQueue queue = QueueHelper.GetQueueReference("post-thumbnails");
+                await queue.AddMessageAsync(new CloudQueueMessage(uniqueBlobName));
+            }
 
             await _postRepo.UpdatePostAsync(originalPost);
 
