@@ -636,3 +636,7 @@ C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieService_WebRole1\obj\
 C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieService_WebRole1\obj\Debug\MovieSer.A6770D51.Up2Date
 C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieService_WebRole1\obj\Debug\MovieService_WebRole1.dll
 C:\Users\Duska\Desktop\RCA\OblakProjekat\OblakProject\MovieService_WebRole1\obj\Debug\MovieService_WebRole1.pdb
+C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieService_WebRole1\obj\Debug\MovieService_WebRole1.csproj.AssemblyReference.cache
+C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieService_WebRole1\obj\Debug\MovieService_WebRole1.csproj.CoreCompileInputs.cache
+C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieService_WebRole1\obj\Debug\MovieService_WebRole1.dll
+C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieService_WebRole1\obj\Debug\MovieService_WebRole1.pdb

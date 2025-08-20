@@ -19,5 +19,7 @@ namespace MovieService_WebRole1.DataBase
         public DbContextLocal() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=MovieService_WebRole1; Integrated Security = true;") { }
 
         public DbSet<Forum> Forum { get; set; }
+
+        public DbSet<HealthCheck> HealthChecks { get; set; }
     }
 }

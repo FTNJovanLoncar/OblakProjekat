@@ -1,0 +1,60 @@
+﻿@model MovieService_WebRole1.ViewModels.HealthDashboardVM
+@{
+    ViewBag.Title = "Health Dashboard";
+}
+<div class="container" style="max-width:1100px;margin:24px auto">
+    <h2>MovieDiscussionService — Health (poslednja 2h)</h2>
+
+    <form method="get" style="margin:12px 0">
+        <label>Service name (opciono):</label>
+        <input type="text" name="serviceName" value="@Model.ServiceName" />
+        <button type="submit" class="btn btn-default">Primeni</button>
+    </form>
+
+    <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start">
+        <div style="flex:1; min-width:300px">
+            <canvas id="healthChart"></canvas>
+        </div>
+        <div style="flex:1; min-width:280px">
+            <div style="border:1px solid #ddd; padding:12px; border-radius:8px">
+                <h3>Statistika</h3>
+                <p><strong>Prozor:</strong> @Model.WindowStartUtc.ToLocalTime() – @Model.WindowEndUtc.ToLocalTime()</p>
+                <p><strong>Ukupno provera:</strong> @Model.TotalChecks</p>
+                <p><strong>UP:</strong> @Model.UpChecks</p>
+                <p><strong>DOWN:</strong> @(Model.TotalChecks - Model.UpChecks)</p>
+                <p style="font-size:1.25rem;margin-top:8px">
+                    <strong>Dostupnost:</strong> @Model.AvailabilityPercent%
+                    (<span title="Nedostupnost">@Model.UnavailabilityPercent%</span>)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="margin-top:24px">Sirovi podaci</h3>
+    <table class="table table-bordered table-striped">
+        <thead><tr><th>Vreme (lokalno)</th><th>Status</th></tr></thead>
+        <tbody>
+            @foreach (var p in Model.Points)
+            {
+                <tr>
+                    <td>@p.t</td>
+                    <td>@(p.up ? "UP" : "DOWN")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var data = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Points));
+    var ctx = document.getElementById('healthChart');
+    var labels = data.map(d => d.t);
+    var values = data.map(d => d.up ? 1 : 0);
+
+    new Chart(ctx, {
+        type: 'line',
+        data: { labels, datasets: [{ label: 'Dostupnost (1=UP, 0=DOWN)', data: values, tension: 0.2, pointRadius: 2, borderWidth: 2, stepped: true }] },
+        options: { scales: { y: { beginAtZero: true, suggestedMax: 1 } } }
+    });
+</script>

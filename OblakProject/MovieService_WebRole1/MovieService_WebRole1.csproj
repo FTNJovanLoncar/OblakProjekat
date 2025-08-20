@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Context\DbContextLocal.cs" />
     <Compile Include="Controllers\ForumController.cs" />
+    <Compile Include="Controllers\HealthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -205,9 +206,12 @@
     </Compile>
     <Compile Include="Mapper\ForumMap.cs" />
     <Compile Include="Models\Forum.cs" />
+    <Compile Include="Models\HealthCheck.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="UserDataRepository.cs" />
+    <Compile Include="ViewModels\HealthDashboardVM.cs" />
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +278,7 @@
     <Content Include="Views\Post\Create.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\Comments.cshtml" />
+    <Content Include="Views\Health\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

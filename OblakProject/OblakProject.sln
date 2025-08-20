@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostData", "PostData\PostDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageConverter_WorkerRole", "..\..\..\General\V6\StudentService_Web_Blob_Queue\StudentService - Ceo zadatak\ImageConverter_WorkerRole\ImageConverter_WorkerRole.csproj", "{2EC7C4C8-4F1C-46E0-9973-183C170136B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminToolsConsoleApp", "..\AdminToolsConsoleApp\AdminToolsConsoleApp.csproj", "{9260BFEB-0E3E-49B9-97E9-143F3F8AC9E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2EC7C4C8-4F1C-46E0-9973-183C170136B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EC7C4C8-4F1C-46E0-9973-183C170136B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EC7C4C8-4F1C-46E0-9973-183C170136B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9260BFEB-0E3E-49B9-97E9-143F3F8AC9E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9260BFEB-0E3E-49B9-97E9-143F3F8AC9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9260BFEB-0E3E-49B9-97E9-143F3F8AC9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9260BFEB-0E3E-49B9-97E9-143F3F8AC9E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
