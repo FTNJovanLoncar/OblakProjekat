@@ -8,7 +8,7 @@ using MovieData;
 using PostData;
 using MovieService_WebRole1.Models;
 using ApplicationUser = MovieService_WebRole1.Models.ApplicationUser;
-using ImageConverter_WorkerRole;
+//using ImageConverter_WorkerRole;
 
 // Alias ambiguous types to resolve conflict
 using ApplicationUserManager1 = MovieService_WebRole1.Models.ApplicationUserManager;

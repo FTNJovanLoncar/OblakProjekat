@@ -16,7 +16,7 @@ namespace MovieService_WebRole1.DataBase
 {
     public class DbContextLocal : DBContext
     {
-        public DbContextLocal() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=MovieService_WebRole1; Integrated Security = true;") { }
+        public DbContextLocal() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=MovieService_WebRole1; Integrated Security = true;") { Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DbContextLocal>()); }
 
         public DbSet<Forum> Forum { get; set; }
 

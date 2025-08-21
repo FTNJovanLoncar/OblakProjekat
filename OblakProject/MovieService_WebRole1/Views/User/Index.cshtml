@@ -14,47 +14,47 @@
     <div class="header-box">
         @if (User.Identity.IsAuthenticated)
         {
-            <div class="welcome-user" style="display:flex; align-items:center;">
-                <!-- Slika korisnika -->
-                <img src="@currentUser.ImageUrl?ts=@DateTime.Now.Ticks" alt="User Image"
-                     style="width:50px; height:50px; border-radius:50%; margin-right:10px;"/>
+              <div class="welcome-user" style="display:flex; align-items:center;">
+                  <!--  Slika korisnika -->
+                  <img src="@currentUser.ImageUrl?ts=@DateTime.Now.Ticks" alt="User Image"
+                       style="width:50px; height:50px; border-radius:50%; margin-right:10px;" />
 
-                <!-- Tekst dobrodošlice -->
-                <h2 class="welcome-text" style="margin:0;">
-                    Welcome, @currentUser.Email
-                </h2>
+                  <!-- Tekst dobrodošlice -->
+                  <h2 class="welcome-text" style="margin:0;">
+                      Welcome, @currentUser.Email
+                  </h2>
             </div>
 
 
-            <div class="button-group">
-                @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { id = "logoutForm" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <button type="submit" class="btn btn-orange">Log Out</button>
-                }
+                  <div class="button-group">
+                      @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { id = "logoutForm" }))
+                      {
+                          @Html.AntiForgeryToken()
+                          <button type="submit" class="btn btn-orange">Log Out</button>
+                      }
 
-                @Html.ActionLink("Profile", "Profile", "User", null, new { @class = "btn btn-orange" })
-                @Html.ActionLink("Lista diskusija", "Index", "Post", null, new { @class = "btn btn-orange" })
+                      @Html.ActionLink("Profile", "Profile", "User", null, new { @class = "btn btn-orange" })
+                      @Html.ActionLink("Lista diskusija", "Index", "Post", null, new { @class = "btn btn-orange" })
 
-                @using (Html.BeginForm("BecomeAuthorConfirmed", "User", FormMethod.Post, new { id = "becomeAuthorForm", style = "display:inline-block;" }))
-                {
-                    @Html.AntiForgeryToken()
-                    if (currentUser != null && currentUser.UserRole != MovieData.UserRole.Author && currentUser.Email.ToLower().Contains("@author"))
-                    {
-                        <button type="submit" class="btn btn-orange">Become an Author</button>
-                    }
-                }
-            </div>
-        }
-        else
-        {
-            <h2 class="welcome-text">Welcome, Guest</h2>
-            <p class="guest-links">
-                @Html.ActionLink("Log in", "Login", null, new { @class = "btn btn-orange" })
-                @Html.ActionLink("Register", "Register", null, new { @class = "btn btn-orange", style = "margin-left:10px;" })
-            </p>
-        }
-    </div>
+                      @using (Html.BeginForm("BecomeAuthorConfirmed", "User", FormMethod.Post, new { id = "becomeAuthorForm", style = "display:inline-block;" }))
+                      {
+                          @Html.AntiForgeryToken()
+                          if (currentUser != null && currentUser.UserRole != MovieData.UserRole.Author && currentUser.Email.ToLower().Contains("@author"))
+                          {
+                              <button type="submit" class="btn btn-orange">Become an Author</button>
+                          }
+                      }
+                  </div>
+                  }
+                  else
+                  {
+                  <h2 class="welcome-text">Welcome, Guest</h2>
+                  <p class="guest-links">
+                      @Html.ActionLink("Log in", "Login", null, new { @class = "btn btn-orange" })
+                      @Html.ActionLink("Register", "Register", null, new { @class = "btn btn-orange", style = "margin-left:10px;" })
+                  </p>
+                  }
+              </div>
 
     <div class="card-box">
         <table class="styled-table">
