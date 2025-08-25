@@ -20,6 +20,5 @@ namespace MovieService_WebRole1.DataBase
 
         public DbSet<Forum> Forum { get; set; }
 
-        public DbSet<HealthCheck> HealthChecks { get; set; }
     }
 }

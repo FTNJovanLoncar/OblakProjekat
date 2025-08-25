@@ -123,50 +123,7 @@ namespace MovieService_WebRole1.Controllers
         {
             return View(new LoginViewModel());
         }
-        /*
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (!ModelState.IsValid) return View(model);
-
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            var result = await UserManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
-            {
-                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                var u = new User(model.Email) // sets RowKey
-                {
-                    Name = model.Name,
-                    Password = model.Password,
-                    Email = model.Email,
-                    Country = model.Country,
-                    City = model.City,
-                    Address = model.Address,
-                    Gender = model.Gender,
-                    ImageUrl = model.ImageUrl
-                };
-                Console.WriteLine("Above");
-                try
-                {
-                    await repo.AddStudent(u);
-                }
-                catch (Exception ex)
-                {
-                    // Log exception or add to model state to show error
-                    ModelState.AddModelError("", "Error saving user info: " + ex.Message);
-                    return View(model);
-                }
-                Console.WriteLine("Here");
-                return RedirectToAction("Index", "User");
-            }
-            AddErrors(result);
-            return View(model);
-        }
-
-        */
+        
 
         //NOVA FJA ZA REGISTRACIJU
 
@@ -331,52 +288,7 @@ namespace MovieService_WebRole1.Controllers
 
         }
 
-        /*
-        [HttpPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditProfile(User updatedUser)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("UserEdit", updatedUser);
-
-            }
-
-            try
-            {
-                // Retrieve existing user to update
-                string email = User.Identity.GetUserName();
-                if (string.IsNullOrEmpty(email))
-                {
-                    return RedirectToAction("Login", "User");
-                }
-
-                var existingUser = await repo.GetUserByEmailAsync(email);
-                if (existingUser == null)
-                    return HttpNotFound("User not found");
-
-                // Update the fields you allow user to edit
-                existingUser.Name = updatedUser.Name;
-                existingUser.Country = updatedUser.Country;
-                existingUser.City = updatedUser.City;
-                existingUser.Address = updatedUser.Address;
-                existingUser.Gender = updatedUser.Gender;
-                existingUser.ImageUrl = updatedUser.ImageUrl;
-
-                // Save changes back to Azure Table Storage
-                await repo.UpdateUserAsync(existingUser);
-
-                TempData["SuccessMessage"] = "Profile updated successfully.";
-                return RedirectToAction("Index", "User");
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", "Error updating profile: " + ex.Message);
-                return View("UserEdit", updatedUser);
-            }
-        }
-        */
+        
 
         //NOVAAA FJA ZA EDIT
 

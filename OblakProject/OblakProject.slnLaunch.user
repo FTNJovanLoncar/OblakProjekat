@@ -5,6 +5,10 @@
       {
         "Path": "OblakProject.ccproj",
         "Action": "Start"
+      },
+      {
+        "Path": "..\\HealthStatusService2\\HealthStatusService2.ccproj",
+        "Action": "Start"
       }
     ]
   }

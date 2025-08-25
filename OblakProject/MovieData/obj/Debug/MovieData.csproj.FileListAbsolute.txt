@@ -70,3 +70,17 @@ C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieData\obj\De
 C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieData\obj\Debug\MovieData.csproj.Up2Date
 C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieData\obj\Debug\MovieData.dll
 C:\Users\glisi\OneDrive\Desktop\git\OblakProjekat1\OblakProject\MovieData\obj\Debug\MovieData.pdb
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\MovieData.dll
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\MovieData.pdb
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\PostData.dll
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\PostData.pdb
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.csproj.AssemblyReference.cache
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.csproj.CoreCompileInputs.cache
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.csproj.Up2Date
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.dll
+C:\Users\Duska\Desktop\rca2\OblakProjekat\OblakProject\MovieData\obj\Debug\MovieData.pdb
